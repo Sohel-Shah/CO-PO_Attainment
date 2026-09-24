@@ -1,0 +1,90 @@
+﻿[
+  {
+    "id": "e8215c53-1be9-4a31-b503-fa577500eb47",
+    "courseId": "15db0113-c62b-4e02-8146-0cc97137a87e",
+    "title": "Internal Exam",
+    "type": "Internal",
+    "totalMarks": 40,
+    "date": null,
+    "duration": "1 hr",
+    "createdAt": "2026-03-16T06:34:18.474Z",
+    "updatedAt": "2026-03-16T09:47:25.922Z"
+  },
+  {
+    "id": "dfb43a9b-51ec-45e7-9cd8-fe0833e3fc0a",
+    "courseId": "15db0113-c62b-4e02-8146-0cc97137a87e",
+    "title": "End Semester Exam",
+    "type": "End Semester",
+    "totalMarks": 55,
+    "date": null,
+    "duration": "3 hr",
+    "createdAt": "2026-03-16T06:34:18.485Z",
+    "updatedAt": "2026-03-16T09:47:25.923Z"
+  },
+  {
+    "id": "587de2c5-7038-49b6-aaa5-0e0168f13434",
+    "courseId": "15db0113-c62b-4e02-8146-0cc97137a87e",
+    "title": "Mid Semester Exam",
+    "type": "Mid Semester",
+    "totalMarks": 30,
+    "date": null,
+    "duration": "2 hr",
+    "createdAt": "2026-03-16T06:34:18.491Z",
+    "updatedAt": "2026-03-16T09:47:25.925Z"
+  },
+  {
+    "id": "c69e62fe-f109-4778-896c-648334c9e838",
+    "courseId": "15db0113-c62b-4e02-8146-0cc97137a87e",
+    "title": "Internal Exam",
+    "type": "Internal",
+    "totalMarks": 20,
+    "date": null,
+    "duration": null,
+    "createdAt": "2026-03-16T09:41:37.893Z",
+    "updatedAt": "2026-03-16T09:47:25.926Z"
+  },
+  {
+    "id": "2098adbb-6f1a-4e2d-9826-73acf64868ad",
+    "courseId": "15db0113-c62b-4e02-8146-0cc97137a87e",
+    "title": "Internal Exam",
+    "type": "Internal",
+    "totalMarks": 20,
+    "date": null,
+    "duration": null,
+    "createdAt": "2026-03-16T09:42:17.630Z",
+    "updatedAt": "2026-03-16T09:47:25.927Z"
+  },
+  {
+    "id": "40c6c3ab-9fd0-4d2c-b2af-7886cdfd13ee",
+    "courseId": "15db0113-c62b-4e02-8146-0cc97137a87e",
+    "title": "Internal Exam",
+    "type": "Internal",
+    "totalMarks": 20,
+    "date": null,
+    "duration": null,
+    "createdAt": "2026-03-16T09:42:17.632Z",
+    "updatedAt": "2026-03-16T09:47:25.929Z"
+  },
+  {
+    "id": "e754bb33-643a-4ef6-af9a-a21e19bb793c",
+    "courseId": "15db0113-c62b-4e02-8146-0cc97137a87e",
+    "title": "Internal Exam",
+    "type": "Internal",
+    "totalMarks": 20,
+    "date": null,
+    "duration": null,
+    "createdAt": "2026-03-16T09:42:25.229Z",
+    "updatedAt": "2026-03-16T09:47:25.930Z"
+  },
+  {
+    "id": "55fa04bd-f5cf-44ba-9dd2-9e678cbd33bb",
+    "courseId": "15db0113-c62b-4e02-8146-0cc97137a87e",
+    "title": "Internal Exam",
+    "type": "Internal",
+    "totalMarks": 20,
+    "date": null,
+    "duration": null,
+    "createdAt": "2026-03-16T09:42:25.230Z",
+    "updatedAt": "2026-03-16T09:47:25.931Z"
+  }
+]

@@ -1,0 +1,208 @@
+Created At: 2026-07-13T11:35:25Z
+Completed At: 2026-07-13T11:35:25Z
+File Path: `file:///d:/Kunal_18-2-26/OBC%20Software%20New/extracted_design.html`
+Total Lines: 929
+Total Bytes: 47093
+Showing lines 1 to 200
+The following code has been modified to include a line number before every line, in the format: <line_number>: <original_line>. Please note that any changes targeting the original code should remove the line number, colon, and leading space.
+1: <!DOCTYPE html>
+2: <html lang="en">
+3: <head>
+4: <meta charset="UTF-8">
+5: <title>CO-PO Attainment Studio</title>
+6: <meta name="viewport" content="width=device-width, initial-scale=1.0">
+7: <style>
+8:   :root{
+9:     --ink:#1b2430;
+10:     --paper:#f6f4ee;
+11:     --panel:#ffffff;
+12:     --line:#dedad0;
+13:     --navy:#1f3350;
+14:     --navy-2:#2c4a73;
+15:     --teal:#2f7d76;
+16:     --teal-soft:#e4f0ee;
+17:     --amber:#b5793a;
+18:     --amber-soft:#faf0e2;
+19:     --red:#a5403a;
+20:     --red-soft:#f8e9e7;
+21:     --green:#3d7a4f;
+22:     --green-soft:#e9f3ec;
+23:     --muted:#6b7280;
+24:     --mono: ui-monospace, "SFMono-Regular", "IBM Plex Mono", Menlo, Consolas, monospace;
+25:     --sans: ui-sans-serif, "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+26:     --serif: Georgia, "Iowan Old Style", "Times New Roman", serif;
+27:   }
+28:   *{box-sizing:border-box;}
+29:   html,body{margin:0;padding:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:14px;}
+30:   ::selection{background:var(--teal-soft);}
+31:   #app{display:flex;min-height:100vh;}
+32: 
+33:   /* Sidebar */
+34:   #sidebar{width:230px;flex-shrink:0;background:var(--navy);color:#e7ecf3;display:flex;flex-direction:column;}
+35:   .brand{padding:22px 18px 14px;border-bottom:1px solid rgba(255,255,255,0.12);}
+36:   .brand .mark{font-family:var(--serif);font-size:20px;letter-spacing:0.3px;color:#fff;}
+37:   .brand .sub{font-size:11px;color:#a9b8cc;margin-top:4px;text-transform:uppercase;letter-spacing:1px;}
+38:   nav{padding:10px 10px;display:flex;flex-direction:column;gap:2px;flex:1;}
+39:   nav button{all:unset;cursor:pointer;padding:10px 12px;border-radius:6px;font-size:13px;color:#c9d4e3;display:flex;align-items:center;gap:9px;}
+40:   nav button .num{font-family:var(--mono);font-size:11px;color:#7f92ac;width:16px;}
+41:   nav button:hover{background:rgba(255,255,255,0.06);color:#fff;}
+42:   nav button.active{background:var(--teal);color:#fff;}
+43:   nav button.active .num{color:#dff2ef;}
+44:   .side-footer{padding:14px 18px;font-size:11px;color:#7f92ac;border-top:1px solid rgba(255,255,255,0.12);}
+45:   .side-footer button{all:unset;cursor:pointer;color:#e7ecf3;text-decoration:underline;font-size:11px;}
+46: 
+47:   /* Main */
+48:   #main{flex:1;padding:28px 34px 60px;max-width:1180px;}
+49:   h1.pagetitle{font-family:var(--serif);font-size:26px;margin:0 0 4px;color:var(--navy);}
+50:   .pagesub{color:var(--muted);font-size:13px;margin-bottom:22px;}
+51:   .card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:18px 20px;margin-bottom:18px;}
+52:   .card h2{font-family:var(--serif);font-size:16px;margin:0 0 12px;color:var(--navy-2);}
+53:   .card h3{font-size:12px;text-transform:uppercase;letter-spacing:0.6px;color:var(--muted);margin:0 0 10px;}
+54:   .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+55:   .field{display:flex;flex-direction:column;gap:5px;margin-bottom:12px;}
+56:   .field label{font-size:11.5px;color:var(--muted);text-transform:uppercase;letter-spacing:0.4px;}
+57:   input[type=text], input[type=number], textarea, select{
+58:     font-family:var(--sans);font-size:13.5px;padding:8px 10px;border:1px solid var(--line);border-radius:6px;background:#fdfcfa;color:var(--ink);
+59:   }
+60:   input:focus, textarea:focus, select:focus{outline:2px solid var(--teal);outline-offset:0;border-color:var(--teal);}
+61:   textarea{resize:vertical;min-height:52px;font-family:var(--sans);}
+62:   button.btn{all:unset;cursor:pointer;font-size:12.5px;padding:8px 14px;border-radius:6px;background:var(--navy);color:#fff;font-weight:600;letter-spacing:0.2px;}
+63:   button.btn:hover{background:var(--navy-2);}
+64:   button.btn.teal{background:var(--teal);}
+65:   button.btn.teal:hover{background:#26685f;}
+66:   button.btn.ghost{background:transparent;color:var(--navy);border:1px solid var(--line);}
+67:   button.btn.ghost:hover{background:#f0eee6;}
+68:   button.btn.danger{background:var(--red-soft);color:var(--red);}
+69:   button.btn.danger:hover{background:#f2d9d6;}
+70:   button.btn.small{padding:5px 10px;font-size:11.5px;}
+71:   .rowflex{display:flex;gap:10px;align-items:center;flex-wrap:wrap;}
+72:   .spacer{flex:1;}
+73: 
+74:   table{width:100%;border-collapse:collapse;font-size:13px;}
+75:   table.data th, table.data td{border:1px solid var(--line);padding:7px 9px;text-align:center;}
+76:   table.data th{background:#eef0e9;color:var(--navy);font-weight:600;font-size:11.5px;text-transform:uppercase;letter-spacing:0.3px;}
+77:   table.data td.left, table.data th.left{text-align:left;}
+78:   table.data td input[type=number]{width:60px;text-align:center;padding:5px;font-family:var(--mono);}
+79:   table.data td input[type=text]{width:100%;padding:5px;}
+80:   table.data tr:nth-child(even) td{background:#fbfaf6;}
+81:   .tablewrap{overflow-x:auto;border-radius:6px;}
+82: 
+83:   .tag{display:inline-block;padding:1px 7px;border-radius:20px;font-size:10.5px;font-weight:600;margin:1px 2px;}
+84:   .tag.co{background:var(--teal-soft);color:var(--teal);}
+85:   .pill{display:inline-flex;align-items:center;gap:4px;font-size:11px;padding:2px 8px;border-radius:20px;font-weight:600;}
+86:   .pill.l3{background:var(--green-soft);color:var(--green);}
+87:   .pill.l2{background:var(--amber-soft);color:var(--amber);}
+88:   .pill.l1{background:var(--red-soft);color:var(--red);}
+89:   .pill.l0{background:#eee;color:#888;}
+90:   .muted{color:var(--muted);}
+91:   .mono{font-family:var(--mono);}
+92:   .hint{font-size:12px;color:var(--muted);line-height:1.5;margin-top:6px;}
+93:   .examtabs{display:flex;gap:6px;margin-bottom:16px;flex-wrap:wrap;}
+94:   .examtabs button{all:unset;cursor:pointer;padding:7px 14px;border-radius:20px;font-size:12.5px;font-weight:600;border:1px solid var(--line);color:var(--navy);background:#fff;}
+95:   .examtabs button.active{background:var(--navy);color:#fff;border-color:var(--navy);}
+96:   .badge-ok{color:var(--green);font-weight:700;}
+97:   .badge-no{color:var(--red);font-weight:700;}
+98:   .toast{position:fixed;bottom:18px;right:18px;background:var(--navy);color:#fff;padding:10px 16px;border-radius:8px;font-size:12.5px;box-shadow:0 6px 20px rgba(0,0,0,0.2);opacity:0;transform:translateY(6px);transition:all .25s;pointer-events:none;z-index:99;}
+99:   .toast.show{opacity:1;transform:translateY(0);}
+100:   .cowrap{display:flex;flex-wrap:wrap;gap:6px;}
+101:   .cocheck{display:flex;align-items:center;gap:4px;font-size:11.5px;background:#f0eee6;padding:3px 8px;border-radius:14px;cursor:pointer;}
+102:   .cocheck input{margin:0;}
+103:   .flag{font-size:11px;color:var(--red);margin-left:6px;}
+104:   .section-note{background:var(--teal-soft);border-left:3px solid var(--teal);padding:10px 14px;border-radius:0 6px 6px 0;font-size:12.5px;color:#204a45;margin-bottom:16px;line-height:1.55;}
+105:   details.formula{margin-top:10px;font-size:12.5px;}
+106:   details.formula summary{cursor:pointer;color:var(--navy-2);font-weight:600;}
+107:   details.formula .body{padding:10px 2px 2px;color:var(--muted);line-height:1.6;}
+108:   .num-cell{width:70px;}
+109:   @media(max-width:900px){
+110:     #app{flex-direction:column;}
+111:     #sidebar{width:100%;flex-direction:row;overflow-x:auto;}
+112:     nav{flex-direction:row;}
+113:     #main{padding:18px;}
+114:   }
+115: 
+116:   /* ---- Report tab ---- */
+117:   .report-doc{background:#fff;}
+118:   .report-cover{text-align:center;padding:30px 10px 20px;border-bottom:3px solid var(--navy);margin-bottom:22px;}
+119:   .report-cover .institute{font-family:var(--serif);font-size:22px;color:var(--navy);}
+120:   .report-cover .dept{font-size:13px;color:var(--muted);margin-top:2px;}
+121:   .report-cover .doctitle{font-family:var(--serif);font-size:19px;margin-top:18px;color:var(--navy-2);}
+122:   .report-cover .coursetitle{font-size:15px;margin-top:6px;font-weight:600;}
+123:   .report-section{margin-bottom:26px;}
+124:   .report-section h2{font-family:var(--serif);font-size:16px;color:var(--navy);border-bottom:1px solid var(--line);padding-bottom:6px;margin-bottom:12px;}
+125:   .sig-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;margin-top:40px;}
+126:   .sig-box{border-top:1px solid var(--ink);padding-top:8px;text-align:center;font-size:12.5px;}
+127:   .sig-box .role{font-weight:700;color:var(--navy);margin-top:4px;}
+128:   .sig-box .name{margin-top:22px;color:var(--muted);}
+129:   .report-meta-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px 20px;font-size:13px;margin-bottom:6px;}
+130:   .report-meta-grid div b{color:var(--navy-2);}
+131: 
+132:   @media print{
+133:     #sidebar, .no-print{display:none !important;}
+134:     #app{display:block;}
+135:     #main{max-width:100%;padding:0;margin:0;}
+136:     body{background:#fff;}
+137:     .card{border:none;box-shadow:none;padding:0;margin-bottom:14px;}
+138:     table.data th{background:#eee !important; -webkit-print-color-adjust:exact; print-color-adjust:exact;}
+139:     .report-section{page-break-inside:avoid;}
+140:     .pagebreak{page-break-before:always;}
+141:   }
+142: 
+143:   /* ---- Identity gate ---- */
+144:   .gate-wrap{min-height:100vh;display:flex;align-items:center;justify-content:center;background:var(--navy);}
+145:   .gate-card{background:#fff;border-radius:12px;padding:34px 36px;max-width:380px;width:100%;box-shadow:0 20px 60px rgba(0,0,0,0.3);}
+146:   .gate-card h1{font-family:var(--serif);font-size:22px;color:var(--navy);margin:0 0 4px;}
+147:   .gate-card p{color:var(--muted);font-size:12.5px;margin:0 0 20px;line-height:1.5;}
+148:   .role-toggle{display:flex;gap:8px;margin-top:4px;}
+149:   .role-toggle label{flex:1;border:1px solid var(--line);border-radius:8px;padding:10px;text-align:center;font-size:12.5px;cursor:pointer;}
+150:   .role-toggle input{display:none;}
+151:   .role-toggle input:checked + span{color:var(--teal);font-weight:700;}
+152:   .role-toggle label.checked{border-color:var(--teal);background:var(--teal-soft);}
+153: 
+154:   /* ---- Access control / roles ---- */
+155:   .role-badge{display:inline-block;padding:2px 9px;border-radius:20px;font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:0.3px;}
+156:   .role-badge.owner{background:var(--teal-soft);color:var(--teal);}
+157:   .role-badge.editor{background:var(--amber-soft);color:var(--amber);}
+158:   .role-badge.viewer{background:#eee;color:#777;}
+159:   .role-badge.admin{background:var(--navy);color:#fff;}
+160:   .view-only-banner{background:var(--amber-soft);border-left:3px solid var(--amber);padding:10px 14px;border-radius:0 6px 6px 0;font-size:12.5px;color:#6b4a1f;margin-bottom:16px;}
+161:   #main.view-only input, #main.view-only textarea, #main.view-only select,
+162:   #main.view-only button.btn:not(.no-restrict){
+163:     opacity:0.55; pointer-events:none;
+164:   }
+165: </style>
+166: </head>
+167: <body>
+168: <div id="app">
+169:   <div id="sidebar">
+170:     <div class="brand">
+171:       <div class="mark">CO-PO Attainment Studio</div>
+172:       <div class="sub" id="brandCourse">course setup</div>
+173:     </div>
+174:     <nav id="navList"></nav>
+175:     <div class="side-footer">
+176:       <div id="whoami" style="margin-bottom:6px;"></div>
+177:       <div id="saveState">All changes saved</div>
+178:       <div style="margin-top:6px;"><button onclick="exportJSON()">Export data (.json)</button> · <button onclick="confirmReset()">Reset</button> · <button onclick="switchUser()">Switch user</button></div>
+179:     </div>
+180:   </div>
+181:   <div id="main"></div>
+182: </div>
+183: <div class="toast" id="toast"></div>
+184: 
+185: <script>
+186: /* ============================= DATA MODEL ============================= */
+187: const STORAGE_KEY = 'copo-attainment-tool-v1';   // shared across everyone who opens this artifact — that's what makes per-course access control meaningful
+188: const IDENTITY_KEY = 'copo-identity-v1';          // personal to this browser/account — "who is using this session"
+189: const POS = ['PO1','PO2','PO3','PO4','PO5','PO6','PO7','PO8','PO9','PO10','PO11'];
+190: const PSOS = ['PSO1','PSO2','PSO3'];
+191: const ALL_POS = [...POS, ...PSOS];
+192: const EXAM_KEYS = ['T1','T2','T3','MSE','ESE'];
+193: const COURSE_CATEGORIES = [
+194:   {code:'BSC', label:'Basic Science Course'},
+195:   {code:'ESC', label:'Engineering Science Course'},
+196:   {code:'HSMC', label:'Humanities & Social Science incl. Management'},
+197:   {code:'PCC', label:'Programme Core Course'},
+198:   {code:'PEC', label:'Programme Elective Course'},
+199:   {code:'OEC', label:'Open Elective Course'},
+200:   {code:'MC', label:'Mandatory Course (non-credit)'},
+The above content does NOT show the entire file contents. If you need to view any lines of the file which were not shown to complete your task, call this tool again to view those lines.

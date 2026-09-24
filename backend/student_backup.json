@@ -1,0 +1,1152 @@
+[
+  {
+    "id": "46c7c9c0-e4c4-44d7-9417-65102a281416",
+    "rollNumber": "612210010",
+    "name": "ARYAN SURESH BHOSALE",
+    "email": null,
+    "batchYear": "2021",
+    "createdAt": "2026-03-04T09:24:58.147Z",
+    "updatedAt": "2026-07-14T05:11:38.361Z",
+    "misNumber": "612210010"
+  },
+  {
+    "id": "f6129815-a233-473b-9da9-880a7039960b",
+    "rollNumber": "231087004",
+    "name": "Vikram Malhotra",
+    "email": "vikram.malhotra@spit.ac.in",
+    "batchYear": "SY",
+    "createdAt": "2026-03-24T11:27:25.957Z",
+    "updatedAt": "2026-07-28T11:48:00.083Z",
+    "misNumber": "231087004"
+  },
+  {
+    "id": "077eda11-fb6c-46df-8214-84f9ca0c0743",
+    "rollNumber": "612210023",
+    "name": "NIKHIL ASHOK GAIKWAD",
+    "email": null,
+    "batchYear": "2021",
+    "createdAt": "2026-03-04T09:24:58.162Z",
+    "updatedAt": "2026-07-14T05:11:38.406Z",
+    "misNumber": "612210023"
+  },
+  {
+    "id": "2a6c0430-df6d-4625-a516-d7f7c1e875c2",
+    "rollNumber": "612210004",
+    "name": "ADWAIT MILIND DIVEKAR",
+    "email": null,
+    "batchYear": "2021",
+    "createdAt": "2026-03-04T09:24:58.139Z",
+    "updatedAt": "2026-07-14T05:11:38.339Z",
+    "misNumber": "612210004"
+  },
+  {
+    "id": "d2c352ce-3508-403a-8001-7c69b7216d60",
+    "rollNumber": "612210022",
+    "name": "MANISH RAJENDRA PAWAR",
+    "email": null,
+    "batchYear": "2021",
+    "createdAt": "2026-03-04T09:24:58.161Z",
+    "updatedAt": "2026-07-14T05:11:38.403Z",
+    "misNumber": "612210022"
+  },
+  {
+    "id": "2a5e832f-3857-419b-8021-e0835dff7fa9",
+    "rollNumber": "612510006",
+    "name": "SWAPNIL DILIP KHARAT",
+    "email": null,
+    "batchYear": "2022",
+    "createdAt": "2026-03-04T09:24:58.175Z",
+    "updatedAt": "2026-07-14T07:31:11.035Z",
+    "misNumber": "612510006"
+  },
+  {
+    "id": "2276bd98-f577-4f05-acd8-53477ce85d3e",
+    "rollNumber": "612510009",
+    "name": "RAMESH PRABHANJAN WANDREKAR",
+    "email": null,
+    "batchYear": "2022",
+    "createdAt": "2026-03-04T09:24:58.178Z",
+    "updatedAt": "2026-07-14T07:31:11.043Z",
+    "misNumber": "612510009"
+  },
+  {
+    "id": "0f3744bc-bdcf-4eba-950c-d7fc2f4fb3a2",
+    "rollNumber": "612210012",
+    "name": "CHIRAG DILIP PATIL",
+    "email": null,
+    "batchYear": "2021",
+    "createdAt": "2026-03-04T09:24:58.149Z",
+    "updatedAt": "2026-07-14T05:11:38.369Z",
+    "misNumber": "612210012"
+  },
+  {
+    "id": "477dbf19-737c-416e-a554-dfab44439e73",
+    "rollNumber": "612210007",
+    "name": "ANMOL RAINA",
+    "email": null,
+    "batchYear": "2021",
+    "createdAt": "2026-03-04T09:24:58.144Z",
+    "updatedAt": "2026-07-14T05:11:38.350Z",
+    "misNumber": "612210007"
+  },
+  {
+    "id": "49372aac-c49d-4444-aa8b-bcfed88f1f5d",
+    "rollNumber": "612210009",
+    "name": "ARADHYA GIRISH ATUL",
+    "email": null,
+    "batchYear": "2021",
+    "createdAt": "2026-03-04T09:24:58.146Z",
+    "updatedAt": "2026-07-14T05:11:38.357Z",
+    "misNumber": "612210009"
+  },
+  {
+    "id": "4ba27c23-de49-4600-984d-58e6ff2f8532",
+    "rollNumber": "612210026",
+    "name": "RAHUL VIJAY MANE",
+    "email": null,
+    "batchYear": "2021",
+    "createdAt": "2026-03-04T09:24:58.167Z",
+    "updatedAt": "2026-07-14T05:11:38.417Z",
+    "misNumber": "612210026"
+  },
+  {
+    "id": "a012c45b-c247-49d3-9cbb-2a40236630c9",
+    "rollNumber": "612210001",
+    "name": "AAKRUTI TIWARI",
+    "email": null,
+    "batchYear": "2021",
+    "createdAt": "2026-03-04T09:24:58.134Z",
+    "updatedAt": "2026-07-14T05:11:38.327Z",
+    "misNumber": "612210001"
+  },
+  {
+    "id": "8c6715b5-2abd-44b6-b9ae-42ce0b6965e4",
+    "rollNumber": "231087005",
+    "name": "Ananya Iyer",
+    "email": "ananya.iyer@spit.ac.in",
+    "batchYear": "SY",
+    "createdAt": "2026-03-24T11:27:25.963Z",
+    "updatedAt": "2026-07-28T11:48:00.086Z",
+    "misNumber": "231087005"
+  },
+  {
+    "id": "de8362bc-842c-4367-92fd-d0d21dc510e6",
+    "rollNumber": "612210024",
+    "name": "OM SACHIN KATE",
+    "email": null,
+    "batchYear": "2021",
+    "createdAt": "2026-03-04T09:24:58.164Z",
+    "updatedAt": "2026-07-14T05:11:38.410Z",
+    "misNumber": "612210024"
+  },
+  {
+    "id": "64bba985-3132-4d72-8f5d-4182d426a4f6",
+    "rollNumber": "241087006",
+    "name": "Kunal Kumar",
+    "email": "kunal.kumar@spit.ac.in",
+    "batchYear": "FY",
+    "createdAt": "2026-04-04T05:36:37.387Z",
+    "updatedAt": "2026-04-18T05:50:59.307Z",
+    "misNumber": "241087006"
+  },
+  {
+    "id": "d954ccde-dcdd-442c-a539-49991db63a10",
+    "rollNumber": "612210025",
+    "name": "PRANAV MILIND BORSE",
+    "email": null,
+    "batchYear": "2021",
+    "createdAt": "2026-03-04T09:24:58.165Z",
+    "updatedAt": "2026-07-14T05:11:38.413Z",
+    "misNumber": "612210025"
+  },
+  {
+    "id": "21f40bfd-ef21-4e2d-a9f3-3885200240d8",
+    "rollNumber": "612210002",
+    "name": "AARYA SANDEEP KENDALE",
+    "email": null,
+    "batchYear": "2021",
+    "createdAt": "2026-03-04T09:24:58.137Z",
+    "updatedAt": "2026-07-14T05:11:38.331Z",
+    "misNumber": "612210002"
+  },
+  {
+    "id": "8936f472-6a15-401c-84de-73511d4ba9fc",
+    "rollNumber": "612510007",
+    "name": "ADITYA VITTHAL SHINDE",
+    "email": null,
+    "batchYear": "2022",
+    "createdAt": "2026-03-04T09:24:58.176Z",
+    "updatedAt": "2026-07-14T07:31:11.038Z",
+    "misNumber": "612510007"
+  },
+  {
+    "id": "1a67b188-71eb-480c-8497-a35ca3ebe258",
+    "rollNumber": "211087005",
+    "name": "Arjun Nair",
+    "email": "arjun.nair@spit.ac.in",
+    "batchYear": "TY",
+    "createdAt": "2026-03-15T09:33:15.680Z",
+    "updatedAt": "2026-07-30T06:19:36.236Z",
+    "misNumber": "211087005"
+  },
+  {
+    "id": "8c0b3456-b435-468b-8a3d-941a275f6ce8",
+    "rollNumber": "241087002",
+    "name": "Ishani Patil",
+    "email": "ishani.patil@spit.ac.in",
+    "batchYear": "FY",
+    "createdAt": "2026-03-16T07:28:01.489Z",
+    "updatedAt": "2026-07-27T11:46:42.703Z",
+    "misNumber": "241087002"
+  },
+  {
+    "id": "20f8647f-63c1-4576-9100-5af8ec4b1674",
+    "rollNumber": "241087003",
+    "name": "Kabir Singh",
+    "email": "kabir.singh@spit.ac.in",
+    "batchYear": "FY",
+    "createdAt": "2026-03-16T07:28:01.495Z",
+    "updatedAt": "2026-07-27T11:46:42.712Z",
+    "misNumber": "241087003"
+  },
+  {
+    "id": "68317534-0963-42a2-97e5-4737925ad4c8",
+    "rollNumber": "211087004",
+    "name": "Sneha Desai",
+    "email": "sneha.desai@spit.ac.in",
+    "batchYear": "TY",
+    "createdAt": "2026-03-15T09:33:15.674Z",
+    "updatedAt": "2026-07-30T06:19:36.233Z",
+    "misNumber": "211087004"
+  },
+  {
+    "id": "4622fab0-7de7-4bcf-b7de-17eac838921e",
+    "rollNumber": "201087003",
+    "name": "Kunal Shah",
+    "email": "kunal.shah@spit.ac.in",
+    "batchYear": "B.Tech",
+    "createdAt": "2026-03-24T12:14:30.070Z",
+    "updatedAt": "2026-07-30T05:57:04.705Z",
+    "misNumber": "201087003"
+  },
+  {
+    "id": "5dffa9dc-139e-4e34-9df4-0e59b41a8bbb",
+    "rollNumber": "612210013",
+    "name": "DEVRAJ ANAND SINGH",
+    "email": null,
+    "batchYear": "2021",
+    "createdAt": "2026-03-04T09:24:58.150Z",
+    "updatedAt": "2026-07-14T05:11:38.372Z",
+    "misNumber": "612210013"
+  },
+  {
+    "id": "6274f7e0-09a4-472d-bb74-7b94e044312a",
+    "rollNumber": "241087005",
+    "name": "Rohan Gupta",
+    "email": "rohan.gupta@spit.ac.in",
+    "batchYear": "FY",
+    "createdAt": "2026-03-16T07:28:01.505Z",
+    "updatedAt": "2026-07-27T11:46:42.730Z",
+    "misNumber": "241087005"
+  },
+  {
+    "id": "cc9603df-1a90-4527-9db1-49f79dbb4b60",
+    "rollNumber": "241087001",
+    "name": "Aryan Deshmukh",
+    "email": "aryan.deshmukh@spit.ac.in",
+    "batchYear": "FY",
+    "createdAt": "2026-03-16T07:28:01.470Z",
+    "updatedAt": "2026-07-27T11:46:42.693Z",
+    "misNumber": "241087001"
+  },
+  {
+    "id": "c66b78da-094b-4497-b42b-34a5db5a50fa",
+    "rollNumber": "612210011",
+    "name": "ATHARV RAJESH KULKARNI",
+    "email": null,
+    "batchYear": "2021",
+    "createdAt": "2026-03-04T09:24:58.148Z",
+    "updatedAt": "2026-07-14T05:11:38.364Z",
+    "misNumber": "612210011"
+  },
+  {
+    "id": "8dc1ccac-204a-4c7f-a5f0-e709845b7202",
+    "rollNumber": "231087003",
+    "name": "Sneha Reddy",
+    "email": "sneha.reddy@spit.ac.in",
+    "batchYear": "SY",
+    "createdAt": "2026-03-24T11:27:25.951Z",
+    "updatedAt": "2026-07-28T11:48:00.080Z",
+    "misNumber": "231087003"
+  },
+  {
+    "id": "f78817e4-4dad-4cc7-ba05-b5dbcd083acb",
+    "rollNumber": "234567",
+    "name": "GBGB",
+    "email": null,
+    "batchYear": null,
+    "createdAt": "2026-07-23T07:21:40.453Z",
+    "updatedAt": "2026-07-23T07:21:40.453Z",
+    "misNumber": "234567"
+  },
+  {
+    "id": "c698b140-fca9-4041-9495-b58929e5b385",
+    "rollNumber": "211087035",
+    "name": "Raj Kumar",
+    "email": "raj.kumar@spit.ac.in",
+    "batchYear": "TY",
+    "createdAt": "2026-03-17T12:04:53.520Z",
+    "updatedAt": "2026-04-18T05:57:43.732Z",
+    "misNumber": "211087035"
+  },
+  {
+    "id": "0c355131-b0b7-4948-bbe4-cd7eea5cec04",
+    "rollNumber": "211087002",
+    "name": "Priya Kulkarni",
+    "email": "priya.kulkarni@spit.ac.in",
+    "batchYear": "TY",
+    "createdAt": "2026-03-15T09:33:15.659Z",
+    "updatedAt": "2026-07-30T06:19:36.226Z",
+    "misNumber": "211087002"
+  },
+  {
+    "id": "37f26ce3-6adf-4cf4-85b5-6c34f6c277a8",
+    "rollNumber": "612210006",
+    "name": "ANIKET NARAYAN",
+    "email": null,
+    "batchYear": "2021",
+    "createdAt": "2026-03-04T09:24:58.142Z",
+    "updatedAt": "2026-07-14T05:11:38.346Z",
+    "misNumber": "612210006"
+  },
+  {
+    "id": "4837e672-d365-466a-a8fa-1c3ece28dd4d",
+    "rollNumber": "231087002",
+    "name": "Rahul Kulkarni",
+    "email": "rahul.kulkarni@spit.ac.in",
+    "batchYear": "SY",
+    "createdAt": "2026-03-24T11:27:25.945Z",
+    "updatedAt": "2026-07-28T11:48:00.077Z",
+    "misNumber": "231087002"
+  },
+  {
+    "id": "7c4d5cbf-b424-419f-901f-a64bcb948439",
+    "rollNumber": "612210008",
+    "name": "ANSHIL EVEREN",
+    "email": null,
+    "batchYear": "2021",
+    "createdAt": "2026-03-04T09:24:58.145Z",
+    "updatedAt": "2026-07-14T05:11:38.354Z",
+    "misNumber": "612210008"
+  },
+  {
+    "id": "344e3656-f583-4f39-ae33-618dea376925",
+    "rollNumber": "211087008",
+    "name": "Pooja Singh",
+    "email": "pooja.singh@spit.ac.in",
+    "batchYear": "TY",
+    "createdAt": "2026-03-15T09:33:15.698Z",
+    "updatedAt": "2026-07-14T05:11:38.316Z",
+    "misNumber": "211087008"
+  },
+  {
+    "id": "67bd59f9-3428-46f2-b3b5-d78e39056959",
+    "rollNumber": "612510008",
+    "name": "SAHIL ASHISH BHADANG",
+    "email": null,
+    "batchYear": "2022",
+    "createdAt": "2026-03-04T09:24:58.177Z",
+    "updatedAt": "2026-07-14T07:31:11.041Z",
+    "misNumber": "612510008"
+  },
+  {
+    "id": "5df03adf-5539-42b3-893d-edcae5717523",
+    "rollNumber": "612210021",
+    "name": "LAKSHYA ANIL THORAT",
+    "email": null,
+    "batchYear": "2021",
+    "createdAt": "2026-03-04T09:24:58.159Z",
+    "updatedAt": "2026-07-14T05:11:38.400Z",
+    "misNumber": "612210021"
+  },
+  {
+    "id": "436641dd-ef49-47aa-95b0-7287909f63b8",
+    "rollNumber": "211087003",
+    "name": "Rohit Patil",
+    "email": "rohit.patil@spit.ac.in",
+    "batchYear": "TY",
+    "createdAt": "2026-03-15T09:33:15.667Z",
+    "updatedAt": "2026-07-30T06:19:36.229Z",
+    "misNumber": "211087003"
+  },
+  {
+    "id": "9470091b-769a-48a0-a4bd-268dcb4be14b",
+    "rollNumber": "211087007",
+    "name": "Karan Joshi",
+    "email": "karan.joshi@spit.ac.in",
+    "batchYear": "TY",
+    "createdAt": "2026-03-15T09:33:15.692Z",
+    "updatedAt": "2026-07-14T05:11:38.312Z",
+    "misNumber": "211087007"
+  },
+  {
+    "id": "b0d3bce7-d8d6-47f8-91aa-24859268453d",
+    "rollNumber": "211087009",
+    "name": "Vikram Rao",
+    "email": "vikram.rao@spit.ac.in",
+    "batchYear": "TY",
+    "createdAt": "2026-03-15T09:33:15.704Z",
+    "updatedAt": "2026-07-14T05:11:38.320Z",
+    "misNumber": "211087009"
+  },
+  {
+    "id": "f55d92f3-3697-490b-961e-18ac093ef589",
+    "rollNumber": "211087034",
+    "name": "Kunal Hotkar",
+    "email": "kunal.hotkar@spit.ac.in",
+    "batchYear": "TY",
+    "createdAt": "2026-03-17T12:03:32.411Z",
+    "updatedAt": "2026-04-18T05:57:43.729Z",
+    "misNumber": "211087034"
+  },
+  {
+    "id": "12bba625-a611-4f71-a069-28a32f181cf2",
+    "rollNumber": "612210005",
+    "name": "AMBEKAR TEJ ANURAG",
+    "email": null,
+    "batchYear": "2021",
+    "createdAt": "2026-03-04T09:24:58.141Z",
+    "updatedAt": "2026-07-14T05:11:38.342Z",
+    "misNumber": "612210005"
+  },
+  {
+    "id": "4472f1cf-48f3-415e-8fa3-e764eeabcd8f",
+    "rollNumber": "231087006",
+    "name": "Rajesh Kumar ",
+    "email": "rajesh.kumar.@spit.ac.in",
+    "batchYear": "SY",
+    "createdAt": "2026-04-06T07:24:47.655Z",
+    "updatedAt": "2026-04-18T05:57:43.754Z",
+    "misNumber": "231087006"
+  },
+  {
+    "id": "d4884f2f-d755-49ca-8881-daab5ac94f60",
+    "rollNumber": "211087999",
+    "name": "John Test Student",
+    "email": "john.test.student@spit.ac.in",
+    "batchYear": "TY",
+    "createdAt": "2026-06-10T10:03:02.722Z",
+    "updatedAt": "2026-06-10T10:03:02.722Z",
+    "misNumber": "211087999"
+  },
+  {
+    "id": "c3178bfc-f2fc-4abd-88a3-4d83d62e5436",
+    "rollNumber": "201087002",
+    "name": "Neha Verma",
+    "email": "neha.verma@spit.ac.in",
+    "batchYear": "B.Tech",
+    "createdAt": "2026-03-24T12:14:30.063Z",
+    "updatedAt": "2026-07-30T05:57:04.700Z",
+    "misNumber": "201087002"
+  },
+  {
+    "id": "1d926487-acd4-44ab-8e5b-2fd317a8f3c2",
+    "rollNumber": "2110877034",
+    "name": "Kunal Verma",
+    "email": "kunal.verma@spit.ac.in",
+    "batchYear": "TY",
+    "createdAt": "2026-03-16T09:22:15.461Z",
+    "updatedAt": "2026-04-18T05:57:43.735Z",
+    "misNumber": "2110877034"
+  },
+  {
+    "id": "f1909066-21bd-4adc-b9f0-3e859c12dcb1",
+    "rollNumber": "211087010",
+    "name": "Ananya Gupta",
+    "email": "ananya.gupta@spit.ac.in",
+    "batchYear": "TY",
+    "createdAt": "2026-03-15T09:33:15.709Z",
+    "updatedAt": "2026-07-14T05:11:38.324Z",
+    "misNumber": "211087010"
+  },
+  {
+    "id": "47a83ba5-3f4d-4472-b9c8-ed2de1302f27",
+    "rollNumber": "211087006",
+    "name": "Kunal Kumar",
+    "email": "kunal.hotkar@spit.ac.in",
+    "batchYear": "TY",
+    "createdAt": "2026-03-15T09:33:15.686Z",
+    "updatedAt": "2026-07-22T07:44:31.103Z",
+    "misNumber": "211087006"
+  },
+  {
+    "id": "c9788e8d-4d4a-4ca2-a609-c4d10543350c",
+    "rollNumber": "612210003",
+    "name": "ABHISHEK DESAI",
+    "email": null,
+    "batchYear": "2021",
+    "createdAt": "2026-03-04T09:24:58.138Z",
+    "updatedAt": "2026-07-14T05:11:38.335Z",
+    "misNumber": "612210003"
+  },
+  {
+    "id": "59b54adc-86e5-4032-9da9-c952e978d330",
+    "rollNumber": "612510010",
+    "name": "SAGAR VIJAY DULANI",
+    "email": null,
+    "batchYear": "2022",
+    "createdAt": "2026-03-04T09:24:58.179Z",
+    "updatedAt": "2026-07-14T07:31:11.046Z",
+    "misNumber": "612510010"
+  },
+  {
+    "id": "4c3548cd-1a99-46dc-8426-2e2335c64b28",
+    "rollNumber": "231087001",
+    "name": "Aditi Sharma",
+    "email": "aditi.sharma@spit.ac.in",
+    "batchYear": "SY",
+    "createdAt": "2026-03-24T11:27:25.902Z",
+    "updatedAt": "2026-07-28T11:48:00.031Z",
+    "misNumber": "231087001"
+  },
+  {
+    "id": "af0620a2-7f46-4924-a201-1e5eba70104b",
+    "rollNumber": "220870017",
+    "name": "Qasim Khan",
+    "email": "qasim.khan@spit.ac.in",
+    "batchYear": "FY (Sem VII)",
+    "createdAt": "2026-07-15T15:13:51.747Z",
+    "updatedAt": "2026-07-30T05:57:04.642Z",
+    "misNumber": "220870017"
+  },
+  {
+    "id": "08e6676c-c0ef-4072-b90c-6c2db8677e4e",
+    "rollNumber": "220870018",
+    "name": "Riya Chavan",
+    "email": "riya.chavan@spit.ac.in",
+    "batchYear": "FY (Sem VII)",
+    "createdAt": "2026-07-15T15:13:51.752Z",
+    "updatedAt": "2026-07-30T05:57:04.645Z",
+    "misNumber": "220870018"
+  },
+  {
+    "id": "f143688b-cf8d-4f58-b476-407484c294dc",
+    "rollNumber": "220870019",
+    "name": "Sarthak More",
+    "email": "sarthak.more@spit.ac.in",
+    "batchYear": "FY (Sem VII)",
+    "createdAt": "2026-07-15T15:13:51.757Z",
+    "updatedAt": "2026-07-30T05:57:04.650Z",
+    "misNumber": "220870019"
+  },
+  {
+    "id": "82f461dc-23f3-42fa-87b3-9439e71374eb",
+    "rollNumber": "220870022",
+    "name": "Vaishnavi Gaikwad",
+    "email": "vaishnavi.gaikwad@spit.ac.in",
+    "batchYear": "FY (Sem VII)",
+    "createdAt": "2026-07-15T15:13:51.774Z",
+    "updatedAt": "2026-07-30T05:57:04.662Z",
+    "misNumber": "220870022"
+  },
+  {
+    "id": "7901002c-7db7-449f-9665-02b8b548d9ce",
+    "rollNumber": "220870023",
+    "name": "Waqar Ansari",
+    "email": "waqar.ansari@spit.ac.in",
+    "batchYear": "FY (Sem VII)",
+    "createdAt": "2026-07-15T15:13:51.780Z",
+    "updatedAt": "2026-07-30T05:57:04.665Z",
+    "misNumber": "220870023"
+  },
+  {
+    "id": "64f5cfe8-fef1-407a-b24f-7b9190ff53ba",
+    "rollNumber": "220870024",
+    "name": "Xena D'Souza",
+    "email": "xena.d.souza@spit.ac.in",
+    "batchYear": "FY (Sem VII)",
+    "createdAt": "2026-07-15T15:13:51.785Z",
+    "updatedAt": "2026-07-30T05:57:04.669Z",
+    "misNumber": "220870024"
+  },
+  {
+    "id": "79493996-2095-49f1-be99-7d4e37cb4d91",
+    "rollNumber": "612210017",
+    "name": "HARSHIT RAJAN DESHMUKH",
+    "email": null,
+    "batchYear": "2021",
+    "createdAt": "2026-03-04T09:24:58.155Z",
+    "updatedAt": "2026-07-14T05:11:38.387Z",
+    "misNumber": "612210017"
+  },
+  {
+    "id": "b54f13cb-9e8e-4f31-8ee3-f6e1bf6f7f35",
+    "rollNumber": "612210018",
+    "name": "ISHAAN KUMAR JOSHI",
+    "email": null,
+    "batchYear": "2021",
+    "createdAt": "2026-03-04T09:24:58.156Z",
+    "updatedAt": "2026-07-14T05:11:38.390Z",
+    "misNumber": "612210018"
+  },
+  {
+    "id": "b9ea49cf-dfa0-470c-996c-72e0377b2a7f",
+    "rollNumber": "612210027",
+    "name": "RUSHIKESH PRADEEP SALUNKHE",
+    "email": null,
+    "batchYear": "2021",
+    "createdAt": "2026-03-04T09:24:58.168Z",
+    "updatedAt": "2026-07-14T05:11:38.420Z",
+    "misNumber": "612210027"
+  },
+  {
+    "id": "c7cd44b0-278a-4b3e-8e56-b081d6cc7d57",
+    "rollNumber": "612210028",
+    "name": "SAHIL RAMESH KADAM",
+    "email": null,
+    "batchYear": "2021",
+    "createdAt": "2026-03-04T09:24:58.169Z",
+    "updatedAt": "2026-07-14T05:11:38.424Z",
+    "misNumber": "612210028"
+  },
+  {
+    "id": "2d7f8f1a-147b-4384-b5c1-b6f8e609b837",
+    "rollNumber": "612210029",
+    "name": "SIDDHARTH NITIN CHAVAN",
+    "email": null,
+    "batchYear": "2021",
+    "createdAt": "2026-03-04T09:24:58.170Z",
+    "updatedAt": "2026-07-14T05:11:38.427Z",
+    "misNumber": "612210029"
+  },
+  {
+    "id": "628c623f-b3dd-4b4d-9073-fc492755e312",
+    "rollNumber": "612210032",
+    "name": "VAIBHAV PANDURANG MORE",
+    "email": null,
+    "batchYear": "2021",
+    "createdAt": "2026-03-04T09:24:58.173Z",
+    "updatedAt": "2026-07-14T05:11:38.437Z",
+    "misNumber": "612210032"
+  },
+  {
+    "id": "a8fc0dcc-8399-4729-a265-9494f457b0bc",
+    "rollNumber": "612210033",
+    "name": "YASH AVINASH SAWANT",
+    "email": null,
+    "batchYear": "2021",
+    "createdAt": "2026-03-04T09:24:58.174Z",
+    "updatedAt": "2026-07-14T05:11:38.441Z",
+    "misNumber": "612210033"
+  },
+  {
+    "id": "9008a14d-c988-491e-9336-43414dad802a",
+    "rollNumber": "220870012",
+    "name": "Lakshmi Iyer",
+    "email": "lakshmi.iyer@spit.ac.in",
+    "batchYear": "FY (Sem VII)",
+    "createdAt": "2026-07-15T15:13:51.717Z",
+    "updatedAt": "2026-07-30T05:57:04.626Z",
+    "misNumber": "220870012"
+  },
+  {
+    "id": "ed5de07c-b809-4868-b2c0-5768ca642bed",
+    "rollNumber": "220870027",
+    "name": "Arjun Kale",
+    "email": "arjun.kale@spit.ac.in",
+    "batchYear": "FY (Sem VII)",
+    "createdAt": "2026-07-15T15:13:51.803Z",
+    "updatedAt": "2026-07-30T05:57:04.680Z",
+    "misNumber": "220870027"
+  },
+  {
+    "id": "a8187df2-df29-4d62-aae3-56a120be6990",
+    "rollNumber": "220870028",
+    "name": "Bhumi Pawar",
+    "email": "bhumi.pawar@spit.ac.in",
+    "batchYear": "FY (Sem VII)",
+    "createdAt": "2026-07-15T15:13:51.809Z",
+    "updatedAt": "2026-07-30T05:57:04.684Z",
+    "misNumber": "220870028"
+  },
+  {
+    "id": "59235152-00a8-4ae2-a57d-9fba22bfc72d",
+    "rollNumber": "220870029",
+    "name": "Chinmay Naik",
+    "email": "chinmay.naik@spit.ac.in",
+    "batchYear": "FY (Sem VII)",
+    "createdAt": "2026-07-15T15:13:51.815Z",
+    "updatedAt": "2026-07-30T05:57:04.688Z",
+    "misNumber": "220870029"
+  },
+  {
+    "id": "57ce57fc-71e5-4de2-8d86-4ec590dd9e29",
+    "rollNumber": "201087005",
+    "name": " Rajesh Kumar",
+    "email": ".rajesh.kumar@spit.ac.in",
+    "batchYear": "B.Tech",
+    "createdAt": "2026-04-22T05:31:57.030Z",
+    "updatedAt": "2026-04-24T09:40:02.716Z",
+    "misNumber": "201087005"
+  },
+  {
+    "id": "cb6d6d27-7805-4281-b58e-32ce2a8f57e7",
+    "rollNumber": "211087001",
+    "name": "Aditya Sharma",
+    "email": "aditya.sharma@spit.ac.in",
+    "batchYear": "TY",
+    "createdAt": "2026-03-15T09:33:15.633Z",
+    "updatedAt": "2026-07-30T06:19:36.223Z",
+    "misNumber": "211087001"
+  },
+  {
+    "id": "031220ed-fed7-4149-8fcb-897b90857119",
+    "rollNumber": "220870002",
+    "name": "Bhavna Patil",
+    "email": "bhavna.patil@spit.ac.in",
+    "batchYear": "FY (Sem VII)",
+    "createdAt": "2026-07-15T15:13:51.660Z",
+    "updatedAt": "2026-07-30T05:57:04.588Z",
+    "misNumber": "220870002"
+  },
+  {
+    "id": "f785b162-c7f1-4fbb-840d-6c1a095dd26c",
+    "rollNumber": "220870003",
+    "name": "Chirag Desai",
+    "email": "chirag.desai@spit.ac.in",
+    "batchYear": "FY (Sem VII)",
+    "createdAt": "2026-07-15T15:13:51.665Z",
+    "updatedAt": "2026-07-30T05:57:04.592Z",
+    "misNumber": "220870003"
+  },
+  {
+    "id": "73f32a10-df81-457a-aa09-faf558a614b1",
+    "rollNumber": "220870004",
+    "name": "Deepika Nair",
+    "email": "deepika.nair@spit.ac.in",
+    "batchYear": "FY (Sem VII)",
+    "createdAt": "2026-07-15T15:13:51.671Z",
+    "updatedAt": "2026-07-30T05:57:04.596Z",
+    "misNumber": "220870004"
+  },
+  {
+    "id": "d4819545-e197-4f98-869d-26e6449f119e",
+    "rollNumber": "220870005",
+    "name": "Eshan Kulkarni",
+    "email": "eshan.kulkarni@spit.ac.in",
+    "batchYear": "FY (Sem VII)",
+    "createdAt": "2026-07-15T15:13:51.677Z",
+    "updatedAt": "2026-07-30T05:57:04.600Z",
+    "misNumber": "220870005"
+  },
+  {
+    "id": "d51ab958-cfaf-4fa1-845e-7182318859fb",
+    "rollNumber": "220870006",
+    "name": "Farida Shaikh",
+    "email": "farida.shaikh@spit.ac.in",
+    "batchYear": "FY (Sem VII)",
+    "createdAt": "2026-07-15T15:13:51.683Z",
+    "updatedAt": "2026-07-30T05:57:04.605Z",
+    "misNumber": "220870006"
+  },
+  {
+    "id": "b9ef487e-2012-451a-914e-4d63db3302e9",
+    "rollNumber": "220870007",
+    "name": "Gaurav Sharma",
+    "email": "gaurav.sharma@spit.ac.in",
+    "batchYear": "FY (Sem VII)",
+    "createdAt": "2026-07-15T15:13:51.689Z",
+    "updatedAt": "2026-07-30T05:57:04.609Z",
+    "misNumber": "220870007"
+  },
+  {
+    "id": "9fe5083b-d816-4f73-b07b-98132fba64f0",
+    "rollNumber": "220870008",
+    "name": "Harsha Joshi",
+    "email": "harsha.joshi@spit.ac.in",
+    "batchYear": "FY (Sem VII)",
+    "createdAt": "2026-07-15T15:13:51.696Z",
+    "updatedAt": "2026-07-30T05:57:04.612Z",
+    "misNumber": "220870008"
+  },
+  {
+    "id": "5a6c9263-0953-4e58-a5fc-f741e1a0c0e4",
+    "rollNumber": "220870009",
+    "name": "Ishaan Rao",
+    "email": "ishaan.rao@spit.ac.in",
+    "batchYear": "FY (Sem VII)",
+    "createdAt": "2026-07-15T15:13:51.701Z",
+    "updatedAt": "2026-07-30T05:57:04.615Z",
+    "misNumber": "220870009"
+  },
+  {
+    "id": "7f4516a8-3a92-4d87-8940-2d16f40c625f",
+    "rollNumber": "220870010",
+    "name": "Juhi Pandey",
+    "email": "juhi.pandey@spit.ac.in",
+    "batchYear": "FY (Sem VII)",
+    "createdAt": "2026-07-15T15:13:51.707Z",
+    "updatedAt": "2026-07-30T05:57:04.619Z",
+    "misNumber": "220870010"
+  },
+  {
+    "id": "97af2bf9-a8d1-43d6-a9e6-c5f928a4620b",
+    "rollNumber": "220870011",
+    "name": "Keval Shah",
+    "email": "keval.shah@spit.ac.in",
+    "batchYear": "FY (Sem VII)",
+    "createdAt": "2026-07-15T15:13:51.712Z",
+    "updatedAt": "2026-07-30T05:57:04.622Z",
+    "misNumber": "220870011"
+  },
+  {
+    "id": "ee2a8bb2-5190-42c4-8946-4574af4e19d0",
+    "rollNumber": "241087004",
+    "name": "Meera Nair",
+    "email": "meera.nair@spit.ac.in",
+    "batchYear": "FY",
+    "createdAt": "2026-03-16T07:28:01.501Z",
+    "updatedAt": "2026-07-27T11:46:42.721Z",
+    "misNumber": "241087004"
+  },
+  {
+    "id": "3fba3ca8-4df0-4afa-814d-923e5a7a3bc2",
+    "rollNumber": "220870013",
+    "name": "Manav Thakur",
+    "email": "manav.thakur@spit.ac.in",
+    "batchYear": "FY (Sem VII)",
+    "createdAt": "2026-07-15T15:13:51.722Z",
+    "updatedAt": "2026-07-30T05:57:04.629Z",
+    "misNumber": "220870013"
+  },
+  {
+    "id": "e654d9e3-db80-4d42-badb-362c816c49a3",
+    "rollNumber": "220870014",
+    "name": "Nisha Verma",
+    "email": "nisha.verma@spit.ac.in",
+    "batchYear": "FY (Sem VII)",
+    "createdAt": "2026-07-15T15:13:51.729Z",
+    "updatedAt": "2026-07-30T05:57:04.632Z",
+    "misNumber": "220870014"
+  },
+  {
+    "id": "2ccd4ce4-4264-443e-9df1-a093d93ee1a6",
+    "rollNumber": "220870015",
+    "name": "Om Sawant",
+    "email": "om.sawant@spit.ac.in",
+    "batchYear": "FY (Sem VII)",
+    "createdAt": "2026-07-15T15:13:51.735Z",
+    "updatedAt": "2026-07-30T05:57:04.637Z",
+    "misNumber": "220870015"
+  },
+  {
+    "id": "137c0803-9597-46a4-8909-6282bf81b4a6",
+    "rollNumber": "220870016",
+    "name": "Pallavi Ghosh",
+    "email": "pallavi.ghosh@spit.ac.in",
+    "batchYear": "FY (Sem VII)",
+    "createdAt": "2026-07-15T15:13:51.741Z",
+    "updatedAt": "2026-07-30T05:57:04.640Z",
+    "misNumber": "220870016"
+  },
+  {
+    "id": "0eb06361-a9b7-4b67-aaa8-a2aeb3207b3d",
+    "rollNumber": "220870020",
+    "name": "Tanvi Dalvi",
+    "email": "tanvi.dalvi@spit.ac.in",
+    "batchYear": "FY (Sem VII)",
+    "createdAt": "2026-07-15T15:13:51.763Z",
+    "updatedAt": "2026-07-30T05:57:04.654Z",
+    "misNumber": "220870020"
+  },
+  {
+    "id": "af7b3bf7-c36b-4e6b-b93d-ef5bf476330a",
+    "rollNumber": "220870025",
+    "name": "Yash Borse",
+    "email": "yash.borse@spit.ac.in",
+    "batchYear": "FY (Sem VII)",
+    "createdAt": "2026-07-15T15:13:51.792Z",
+    "updatedAt": "2026-07-30T05:57:04.674Z",
+    "misNumber": "220870025"
+  },
+  {
+    "id": "e83b8a0c-a2bc-44f5-a87d-365c0320ef2d",
+    "rollNumber": "220870026",
+    "name": "Zara Qureshi",
+    "email": "zara.qureshi@spit.ac.in",
+    "batchYear": "FY (Sem VII)",
+    "createdAt": "2026-07-15T15:13:51.797Z",
+    "updatedAt": "2026-07-30T05:57:04.677Z",
+    "misNumber": "220870026"
+  },
+  {
+    "id": "a7578ea7-4cda-4ca4-9852-f3147fba5ba0",
+    "rollNumber": "220870030",
+    "name": "Devika Pillai",
+    "email": "devika.pillai@spit.ac.in",
+    "batchYear": "FY (Sem VII)",
+    "createdAt": "2026-07-15T15:13:51.820Z",
+    "updatedAt": "2026-07-30T05:57:04.692Z",
+    "misNumber": "220870030"
+  },
+  {
+    "id": "c749ad9f-6923-4701-a496-0cb02a502905",
+    "rollNumber": "220870021",
+    "name": "Uday Hegde",
+    "email": "uday.hegde@spit.ac.in",
+    "batchYear": "FY (Sem VII)",
+    "createdAt": "2026-07-15T15:13:51.768Z",
+    "updatedAt": "2026-07-30T05:57:04.658Z",
+    "misNumber": "220870021"
+  },
+  {
+    "id": "e1dbb72d-dcc4-46b9-8e78-269be9614241",
+    "rollNumber": "1234567889",
+    "name": "Rajesh Sharman ",
+    "email": "rajesh.sharman.@spit.ac.in",
+    "batchYear": "FY",
+    "createdAt": "2026-04-23T11:09:46.408Z",
+    "updatedAt": "2026-04-23T11:34:17.337Z",
+    "misNumber": "1234567889"
+  },
+  {
+    "id": "f6b73b00-9584-427a-ba39-1e1d8dd0af9b",
+    "rollNumber": "2026TEST01",
+    "name": "Automation Student 1",
+    "email": null,
+    "batchYear": null,
+    "createdAt": "2026-07-22T07:27:43.975Z",
+    "updatedAt": "2026-07-30T06:19:36.214Z",
+    "misNumber": "2026TEST01"
+  },
+  {
+    "id": "1d11b82b-3cfc-40a6-99f6-4df225d5e692",
+    "rollNumber": "2026TEST02",
+    "name": "Automation Student 2",
+    "email": null,
+    "batchYear": null,
+    "createdAt": "2026-07-22T07:27:44.009Z",
+    "updatedAt": "2026-07-30T06:19:36.219Z",
+    "misNumber": "2026TEST02"
+  },
+  {
+    "id": "5792e0e1-beb9-45b7-a553-e02493594aed",
+    "rollNumber": "kkkkkk",
+    "name": "2357788",
+    "email": null,
+    "batchYear": null,
+    "createdAt": "2026-07-30T06:19:36.238Z",
+    "updatedAt": "2026-07-30T06:19:36.238Z",
+    "misNumber": "kkkkkk"
+  },
+  {
+    "id": "d08a3c7b-f51e-4a0d-b611-93bd2d498bd5",
+    "rollNumber": "712637003",
+    "name": "Om Kadam",
+    "email": null,
+    "batchYear": null,
+    "createdAt": "2026-07-28T11:47:37.062Z",
+    "updatedAt": "2026-07-28T11:48:00.095Z",
+    "misNumber": "712637003"
+  },
+  {
+    "id": "3a5be8a9-4dc0-42e5-be93-b5849ad81130",
+    "rollNumber": "712637004",
+    "name": "Sandesh Kedari",
+    "email": null,
+    "batchYear": null,
+    "createdAt": "2026-07-28T11:47:37.080Z",
+    "updatedAt": "2026-07-28T11:48:00.098Z",
+    "misNumber": "712637004"
+  },
+  {
+    "id": "2be5605a-72b1-4bee-8173-d4dbc8afd286",
+    "rollNumber": "712637005",
+    "name": "Shreeyash Labade",
+    "email": null,
+    "batchYear": null,
+    "createdAt": "2026-07-28T11:47:37.084Z",
+    "updatedAt": "2026-07-28T11:48:00.101Z",
+    "misNumber": "712637005"
+  },
+  {
+    "id": "dd5b5895-00f6-4d45-9a0e-9185630149d8",
+    "rollNumber": "712637008",
+    "name": "Aniket Shahaji Patil",
+    "email": null,
+    "batchYear": null,
+    "createdAt": "2026-07-28T11:47:37.088Z",
+    "updatedAt": "2026-07-28T11:48:00.105Z",
+    "misNumber": "712637008"
+  },
+  {
+    "id": "e935804a-e1a7-4578-8b65-77e303663a4d",
+    "rollNumber": "712637009",
+    "name": "Ronit Rajesh Patil",
+    "email": null,
+    "batchYear": null,
+    "createdAt": "2026-07-28T11:47:37.092Z",
+    "updatedAt": "2026-07-28T11:48:00.107Z",
+    "misNumber": "712637009"
+  },
+  {
+    "id": "0630c6f4-0ddc-45a8-b941-61ab74e5c1c9",
+    "rollNumber": "712637010",
+    "name": "Shashank Patil",
+    "email": null,
+    "batchYear": null,
+    "createdAt": "2026-07-28T11:47:37.097Z",
+    "updatedAt": "2026-07-28T11:48:00.110Z",
+    "misNumber": "712637010"
+  },
+  {
+    "id": "f1ee3710-db65-43d9-8f85-8ccfe4862892",
+    "rollNumber": "712637011",
+    "name": "Yash Patil",
+    "email": null,
+    "batchYear": null,
+    "createdAt": "2026-07-28T11:47:37.100Z",
+    "updatedAt": "2026-07-28T11:48:00.113Z",
+    "misNumber": "712637011"
+  },
+  {
+    "id": "aafb87b4-0476-454a-91a4-5c07e37dd5e9",
+    "rollNumber": "712637012",
+    "name": "Sake Vivek Ajay",
+    "email": null,
+    "batchYear": null,
+    "createdAt": "2026-07-28T11:47:37.103Z",
+    "updatedAt": "2026-07-28T11:48:00.116Z",
+    "misNumber": "712637012"
+  },
+  {
+    "id": "9cd406f0-16cb-4e17-a50e-03ece417894c",
+    "rollNumber": "vighnesh patil",
+    "name": "712637013",
+    "email": null,
+    "batchYear": null,
+    "createdAt": "2026-07-28T11:47:37.107Z",
+    "updatedAt": "2026-07-28T11:48:00.119Z",
+    "misNumber": "vighnesh patil"
+  },
+  {
+    "id": "3e3ff90c-dffd-406f-b198-93683a3f4745",
+    "rollNumber": "220870001",
+    "name": "Aarav Mehta",
+    "email": "aarav.mehta@spit.ac.in",
+    "batchYear": "FY (Sem VII)",
+    "createdAt": "2026-07-15T15:13:51.615Z",
+    "updatedAt": "2026-07-30T05:57:04.548Z",
+    "misNumber": "220870001"
+  },
+  {
+    "id": "4a34c57b-8d78-4c23-bd8e-ba6e6e51339f",
+    "rollNumber": "201087004",
+    "name": "Riya Bose",
+    "email": "riya.bose@spit.ac.in",
+    "batchYear": "B.Tech",
+    "createdAt": "2026-03-24T12:14:30.076Z",
+    "updatedAt": "2026-07-30T05:57:04.713Z",
+    "misNumber": "201087004"
+  },
+  {
+    "id": "c39c1c60-1ca0-4c36-b381-5df5dbda38e7",
+    "rollNumber": "612210014",
+    "name": "DHRUV SANTOSH NAIR",
+    "email": null,
+    "batchYear": "2021",
+    "createdAt": "2026-03-04T09:24:58.151Z",
+    "updatedAt": "2026-07-14T05:11:38.376Z",
+    "misNumber": "612210014"
+  },
+  {
+    "id": "b2ba2c44-e1b9-4274-a6cd-e98ab5966cb3",
+    "rollNumber": "612210015",
+    "name": "ESHAN VIJAY MEHTA",
+    "email": null,
+    "batchYear": "2021",
+    "createdAt": "2026-03-04T09:24:58.153Z",
+    "updatedAt": "2026-07-14T05:11:38.379Z",
+    "misNumber": "612210015"
+  },
+  {
+    "id": "e9803f86-fd67-4b6e-be83-3ee21849fbb6",
+    "rollNumber": "612210016",
+    "name": "GAURAV PRAKASH SHINDE",
+    "email": null,
+    "batchYear": "2021",
+    "createdAt": "2026-03-04T09:24:58.154Z",
+    "updatedAt": "2026-07-14T05:11:38.383Z",
+    "misNumber": "612210016"
+  },
+  {
+    "id": "b04cf89c-3abb-403e-bfab-f2d52e9fb365",
+    "rollNumber": "612210019",
+    "name": "JAY DEEPAK WAGHMARE",
+    "email": null,
+    "batchYear": "2021",
+    "createdAt": "2026-03-04T09:24:58.157Z",
+    "updatedAt": "2026-07-14T05:11:38.393Z",
+    "misNumber": "612210019"
+  },
+  {
+    "id": "84b33a51-336f-4773-ae91-abe4c54e78c2",
+    "rollNumber": "612210020",
+    "name": "KARAN SUNIL GHATE",
+    "email": null,
+    "batchYear": "2021",
+    "createdAt": "2026-03-04T09:24:58.158Z",
+    "updatedAt": "2026-07-14T05:11:38.396Z",
+    "misNumber": "612210020"
+  },
+  {
+    "id": "63a40d7c-03a3-4e89-bda7-afcef9e741c7",
+    "rollNumber": "612210030",
+    "name": "TANMAY SURESH JAGTAP",
+    "email": null,
+    "batchYear": "2021",
+    "createdAt": "2026-03-04T09:24:58.171Z",
+    "updatedAt": "2026-07-14T05:11:38.429Z",
+    "misNumber": "612210030"
+  },
+  {
+    "id": "18e67a71-ddcc-4400-9856-586e4ba390cf",
+    "rollNumber": "612210031",
+    "name": "UMESH DATTATRAY KALE",
+    "email": null,
+    "batchYear": "2021",
+    "createdAt": "2026-03-04T09:24:58.172Z",
+    "updatedAt": "2026-07-14T05:11:38.434Z",
+    "misNumber": "612210031"
+  },
+  {
+    "id": "ab48ab07-5b2f-4b97-83f9-b1985aa62b97",
+    "rollNumber": "2023ME001",
+    "name": "Aarav Sharma",
+    "email": null,
+    "batchYear": null,
+    "createdAt": "2026-07-22T07:44:31.107Z",
+    "updatedAt": "2026-07-28T11:48:00.089Z",
+    "misNumber": "2023ME001"
+  },
+  {
+    "id": "f22ded02-bab0-4b52-abb8-64a5fff30d7c",
+    "rollNumber": "2023ME002",
+    "name": "Diya Patel",
+    "email": null,
+    "batchYear": null,
+    "createdAt": "2026-07-22T07:44:31.111Z",
+    "updatedAt": "2026-07-28T11:48:00.092Z",
+    "misNumber": "2023ME002"
+  },
+  {
+    "id": "0eed9b9b-3762-4a40-9df7-706b6e7aceb3",
+    "rollNumber": "201087001",
+    "name": "Siddharth Rao",
+    "email": "siddharth.rao@spit.ac.in",
+    "batchYear": "B.Tech",
+    "createdAt": "2026-03-24T12:14:30.027Z",
+    "updatedAt": "2026-07-30T05:57:04.696Z",
+    "misNumber": "201087001"
+  }
+]

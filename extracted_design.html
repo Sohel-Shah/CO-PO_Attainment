@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CO-PO Attainment Studio</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  :root{
+    --ink:#1b2430;
+    --paper:#f6f4ee;
+    --panel:#ffffff;
+    --line:#dedad0;
+    --navy:#1f3350;
+    --navy-2:#2c4a73;
+    --teal:#2f7d76;
+    --teal-soft:#e4f0ee;
+    --amber:#b5793a;
+    --amber-soft:#faf0e2;
+    --red:#a5403a;
+    --red-soft:#f8e9e7;
+    --green:#3d7a4f;
+    --green-soft:#e9f3ec;
+    --muted:#6b7280;
+    --mono: ui-monospace, "SFMono-Regular", "IBM Plex Mono", Menlo, Consolas, monospace;
+    --sans: ui-sans-serif, "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+    --serif: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:14px;}
+  ::selection{background:var(--teal-soft);}
+  #app{display:flex;min-height:100vh;}
+
+  /* Sidebar */
+  #sidebar{width:230px;flex-shrink:0;background:var(--navy);color:#e7ecf3;display:flex;flex-direction:column;}
+  .brand{padding:22px 18px 14px;border-bottom:1px solid rgba(255,255,255,0.12);}
+  .brand .mark{font-family:var(--serif);font-size:20px;letter-spacing:0.3px;color:#fff;}
+  .brand .sub{font-size:11px;color:#a9b8cc;margin-top:4px;text-transform:uppercase;letter-spacing:1px;}
+  nav{padding:10px 10px;display:flex;flex-direction:column;gap:2px;flex:1;}
+  nav button{all:unset;cursor:pointer;padding:10px 12px;border-radius:6px;font-size:13px;color:#c9d4e3;display:flex;align-items:center;gap:9px;}
+  nav button .num{font-family:var(--mono);font-size:11px;color:#7f92ac;width:16px;}
+  nav button:hover{background:rgba(255,255,255,0.06);color:#fff;}
+  nav button.active{background:var(--teal);color:#fff;}
+  nav button.active .num{color:#dff2ef;}
+  .side-footer{padding:14px 18px;font-size:11px;color:#7f92ac;border-top:1px solid rgba(255,255,255,0.12);}
+  .side-footer button{all:unset;cursor:pointer;color:#e7ecf3;text-decoration:underline;font-size:11px;}
+
+  /* Main */
+  #main{flex:1;padding:28px 34px 60px;max-width:1180px;}
+  h1.pagetitle{font-family:var(--serif);font-size:26px;margin:0 0 4px;color:var(--navy);}
+  .pagesub{color:var(--muted);font-size:13px;margin-bottom:22px;}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:18px 20px;margin-bottom:18px;}
+  .card h2{font-family:var(--serif);font-size:16px;margin:0 0 12px;color:var(--navy-2);}
+  .card h3{font-size:12px;text-transform:uppercase;letter-spacing:0.6px;color:var(--muted);margin:0 0 10px;}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .field{display:flex;flex-direction:column;gap:5px;margin-bottom:12px;}
+  .field label{font-size:11.5px;color:var(--muted);text-transform:uppercase;letter-spacing:0.4px;}
+  input[type=text], input[type=number], textarea, select{
+    font-family:var(--sans);font-size:13.5px;padding:8px 10px;border:1px solid var(--line);border-radius:6px;background:#fdfcfa;color:var(--ink);
+  }
+  input:focus, textarea:focus, select:focus{outline:2px solid var(--teal);outline-offset:0;border-color:var(--teal);}
+  textarea{resize:vertical;min-height:52px;font-family:var(--sans);}
+  button.btn{all:unset;cursor:pointer;font-size:12.5px;padding:8px 14px;border-radius:6px;background:var(--navy);color:#fff;font-weight:600;letter-spacing:0.2px;}
+  button.btn:hover{background:var(--navy-2);}
+  button.btn.teal{background:var(--teal);}
+  button.btn.teal:hover{background:#26685f;}
+  button.btn.ghost{background:transparent;color:var(--navy);border:1px solid var(--line);}
+  button.btn.ghost:hover{background:#f0eee6;}
+  button.btn.danger{background:var(--red-soft);color:var(--red);}
+  button.btn.danger:hover{background:#f2d9d6;}
+  button.btn.small{padding:5px 10px;font-size:11.5px;}
+  .rowflex{display:flex;gap:10px;align-items:center;flex-wrap:wrap;}
+  .spacer{flex:1;}
+
+  table{width:100%;border-collapse:collapse;font-size:13px;}
+  table.data th, table.data td{border:1px solid var(--line);padding:7px 9px;text-align:center;}
+  table.data th{background:#eef0e9;color:var(--navy);font-weight:600;font-size:11.5px;text-transform:uppercase;letter-spacing:0.3px;}
+  table.data td.left, table.data th.left{text-align:left;}
+  table.data td input[type=number]{width:60px;text-align:center;padding:5px;font-family:var(--mono);}
+  table.data td input[type=text]{width:100%;padding:5px;}
+  table.data tr:nth-child(even) td{background:#fbfaf6;}
+  .tablewrap{overflow-x:auto;border-radius:6px;}
+
+  .tag{display:inline-block;padding:1px 7px;border-radius:20px;font-size:10.5px;font-weight:600;margin:1px 2px;}
+  .tag.co{background:var(--teal-soft);color:var(--teal);}
+  .pill{display:inline-flex;align-items:center;gap:4px;font-size:11px;padding:2px 8px;border-radius:20px;font-weight:600;}
+  .pill.l3{background:var(--green-soft);color:var(--green);}
+  .pill.l2{background:var(--amber-soft);color:var(--amber);}
+  .pill.l1{background:var(--red-soft);color:var(--red);}
+  .pill.l0{background:#eee;color:#888;}
+  .muted{color:var(--muted);}
+  .mono{font-family:var(--mono);}
+  .hint{font-size:12px;color:var(--muted);line-height:1.5;margin-top:6px;}
+  .examtabs{display:flex;gap:6px;margin-bottom:16px;flex-wrap:wrap;}
+  .examtabs button{all:unset;cursor:pointer;padding:7px 14px;border-radius:20px;font-size:12.5px;font-weight:600;border:1px solid var(--line);color:var(--navy);background:#fff;}
+  .examtabs button.active{background:var(--navy);color:#fff;border-color:var(--navy);}
+  .badge-ok{color:var(--green);font-weight:700;}
+  .badge-no{color:var(--red);font-weight:700;}
+  .toast{position:fixed;bottom:18px;right:18px;background:var(--navy);color:#fff;padding:10px 16px;border-radius:8px;font-size:12.5px;box-shadow:0 6px 20px rgba(0,0,0,0.2);opacity:0;transform:translateY(6px);transition:all .25s;pointer-events:none;z-index:99;}
+  .toast.show{opacity:1;transform:translateY(0);}
+  .cowrap{display:flex;flex-wrap:wrap;gap:6px;}
+  .cocheck{display:flex;align-items:center;gap:4px;font-size:11.5px;background:#f0eee6;padding:3px 8px;border-radius:14px;cursor:pointer;}
+  .cocheck input{margin:0;}
+  .flag{font-size:11px;color:var(--red);margin-left:6px;}
+  .section-note{background:var(--teal-soft);border-left:3px solid var(--teal);padding:10px 14px;border-radius:0 6px 6px 0;font-size:12.5px;color:#204a45;margin-bottom:16px;line-height:1.55;}
+  details.formula{margin-top:10px;font-size:12.5px;}
+  details.formula summary{cursor:pointer;color:var(--navy-2);font-weight:600;}
+  details.formula .body{padding:10px 2px 2px;color:var(--muted);line-height:1.6;}
+  .num-cell{width:70px;}
+  @media(max-width:900px){
+    #app{flex-direction:column;}
+    #sidebar{width:100%;flex-direction:row;overflow-x:auto;}
+    nav{flex-direction:row;}
+    #main{padding:18px;}
+  }
+
+  /* ---- Report tab ---- */
+  .report-doc{background:#fff;}
+  .report-cover{text-align:center;padding:30px 10px 20px;border-bottom:3px solid var(--navy);margin-bottom:22px;}
+  .report-cover .institute{font-family:var(--serif);font-size:22px;color:var(--navy);}
+  .report-cover .dept{font-size:13px;color:var(--muted);margin-top:2px;}
+  .report-cover .doctitle{font-family:var(--serif);font-size:19px;margin-top:18px;color:var(--navy-2);}
+  .report-cover .coursetitle{font-size:15px;margin-top:6px;font-weight:600;}
+  .report-section{margin-bottom:26px;}
+  .report-section h2{font-family:var(--serif);font-size:16px;color:var(--navy);border-bottom:1px solid var(--line);padding-bottom:6px;margin-bottom:12px;}
+  .sig-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;margin-top:40px;}
+  .sig-box{border-top:1px solid var(--ink);padding-top:8px;text-align:center;font-size:12.5px;}
+  .sig-box .role{font-weight:700;color:var(--navy);margin-top:4px;}
+  .sig-box .name{margin-top:22px;color:var(--muted);}
+  .report-meta-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px 20px;font-size:13px;margin-bottom:6px;}
+  .report-meta-grid div b{color:var(--navy-2);}
+
+  @media print{
+    #sidebar, .no-print{display:none !important;}
+    #app{display:block;}
+    #main{max-width:100%;padding:0;margin:0;}
+    body{background:#fff;}
+    .card{border:none;box-shadow:none;padding:0;margin-bottom:14px;}
+    table.data th{background:#eee !important; -webkit-print-color-adjust:exact; print-color-adjust:exact;}
+    .report-section{page-break-inside:avoid;}
+    .pagebreak{page-break-before:always;}
+  }
+
+  /* ---- Identity gate ---- */
+  .gate-wrap{min-height:100vh;display:flex;align-items:center;justify-content:center;background:var(--navy);}
+  .gate-card{background:#fff;border-radius:12px;padding:34px 36px;max-width:380px;width:100%;box-shadow:0 20px 60px rgba(0,0,0,0.3);}
+  .gate-card h1{font-family:var(--serif);font-size:22px;color:var(--navy);margin:0 0 4px;}
+  .gate-card p{color:var(--muted);font-size:12.5px;margin:0 0 20px;line-height:1.5;}
+  .role-toggle{display:flex;gap:8px;margin-top:4px;}
+  .role-toggle label{flex:1;border:1px solid var(--line);border-radius:8px;padding:10px;text-align:center;font-size:12.5px;cursor:pointer;}
+  .role-toggle input{display:none;}
+  .role-toggle input:checked + span{color:var(--teal);font-weight:700;}
+  .role-toggle label.checked{border-color:var(--teal);background:var(--teal-soft);}
+
+  /* ---- Access control / roles ---- */
+  .role-badge{display:inline-block;padding:2px 9px;border-radius:20px;font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:0.3px;}
+  .role-badge.owner{background:var(--teal-soft);color:var(--teal);}
+  .role-badge.editor{background:var(--amber-soft);color:var(--amber);}
+  .role-badge.viewer{background:#eee;color:#777;}
+  .role-badge.admin{background:var(--navy);color:#fff;}
+  .view-only-banner{background:var(--amber-soft);border-left:3px solid var(--amber);padding:10px 14px;border-radius:0 6px 6px 0;font-size:12.5px;color:#6b4a1f;margin-bottom:16px;}
+  #main.view-only input, #main.view-only textarea, #main.view-only select,
+  #main.view-only button.btn:not(.no-restrict){
+    opacity:0.55; pointer-events:none;
+  }
+</style>
+</head>
+<body>
+<div id="app">
+  <div id="sidebar">
+    <div class="brand">
+      <div class="mark">CO-PO Attainment Studio</div>
+      <div class="sub" id="brandCourse">course setup</div>
+    </div>
+    <nav id="navList"></nav>
+    <div class="side-footer">
+      <div id="whoami" style="margin-bottom:6px;"></div>
+      <div id="saveState">All changes saved</div>
+      <div style="margin-top:6px;"><button onclick="exportJSON()">Export data (.json)</button> · <button onclick="confirmReset()">Reset</button> · <button onclick="switchUser()">Switch user</button></div>
+    </div>
+  </div>
+  <div id="main"></div>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+/* ============================= DATA MODEL ============================= */
+const STORAGE_KEY = 'copo-attainment-tool-v1';   // shared across everyone who opens this artifact — that's what makes per-course access control meaningful
+const IDENTITY_KEY = 'copo-identity-v1';          // personal to this browser/account — "who is using this session"
+const POS = ['PO1','PO2','PO3','PO4','PO5','PO6','PO7','PO8','PO9','PO10','PO11'];
+const PSOS = ['PSO1','PSO2','PSO3'];
+const ALL_POS = [...POS, ...PSOS];
+const EXAM_KEYS = ['T1','T2','T3','MSE','ESE'];
+const COURSE_CATEGORIES = [
+  {code:'BSC', label:'Basic Science Course'},
+  {code:'ESC', label:'Engineering Science Course'},
+  {code:'HSMC', label:'Humanities & Social Science incl. Management'},
+  {code:'PCC', label:'Programme Core Course'},
+  {code:'PEC', label:'Programme Elective Course'},
+  {code:'OEC', label:'Open Elective Course'},
+  {code:'MC', label:'Mandatory Course (non-credit)'},
+  {code:'LC', label:'Laboratory Course'},
+  {code:'PROJ', label:'Project Work'},
+  {code:'INT', label:'Internship'},
+  {code:'SI', label:'Seminar / Self Study'},
+];
+
+function uid(prefix){ return prefix + Math.random().toString(36).slice(2,9); }
+
+function defaultState(){
+  const cos = [
+    {id:'CO1', desc:'Understand the working of Vapour Compression refrigeration system.'},
+    {id:'CO2', desc:'Design the Vapour Compression refrigeration system for various applications.'},
+    {id:'CO3', desc:'Apply the knowledge of HVAC for multi-pressure systems.'},
+    {id:'CO4', desc:'Able to understand and apply the Psychrometry for air conditioning applications.'},
+    {id:'CO5', desc:'Able to design the duct for various air conditioning systems.'},
+  ];
+  // matrix values taken from the uploaded course file's articulation matrix
+  const rows = {
+    CO1:[2,3,1,2,3,1,2,3,1,2,3, 1,2,3],
+    CO2:[3,1,2,3,1,2,3,1,2,3,1, 2,3,1],
+    CO3:[1,2,3,1,2,3,1,2,3,1,2, 3,1,2],
+    CO4:[2,3,1,2,3,1,2,3,1,2,3, 1,2,3],
+    CO5:[3,1,2,3,1,2,3,1,2,3,1, 2,3,1],
+  };
+  const matrix = {};
+  cos.forEach(co=>{
+    matrix[co.id] = {};
+    ALL_POS.forEach((po,i)=>{ matrix[co.id][po] = rows[co.id][i]; });
+  });
+
+  const mkExam = (label, weight)=>({label, weight, date:'', time:'', durationMinutes:null, questions:[], marks:{}});
+
+  const units = [
+    {id:'U1', unit:'I', topics:'Refrigeration Systems: Vapour Compression and Vapour Absorption.', cos:['CO1','CO2'], bloom:'L2/L3', lectures:3},
+    {id:'U2', unit:'II', topics:'Refrigerants: Designation, Selection, Environment friendly refrigerants; Condensers, Evaporators and Expansion Devices.', cos:['CO2','CO3'], bloom:'L2/L3', lectures:3},
+    {id:'U3', unit:'III', topics:'Refrigerant Compressors: Types, Performance, Capacity Control.', cos:['CO3','CO4'], bloom:'L2/L4', lectures:3},
+    {id:'U4', unit:'IV', topics:'Psychrometrics of Air-Conditioning Processes: Properties, Mixing, Comfort conditions.', cos:['CO1','CO4'], bloom:'L3/L5', lectures:3},
+    {id:'U5', unit:'V', topics:'Load Calculation and Applied Psychrometrics: Cooling-load Estimate, Duct design.', cos:['CO4','CO5'], bloom:'L4/L5', lectures:3},
+  ];
+
+  const tpRows = [
+    [1,1,'I','Refrigeration Systems: Vapour Compression and Vapour Absorption.','CO2','L2/L3'],
+    [2,2,'I','Refrigerants: Designation, Selection, Environment friendly refrigerants.','CO3','L2/L3'],
+    [3,3,'I','Refrigerant Compressors: Types, Performance, Capacity Control.','CO4','L2/L3'],
+    [4,4,'II','Condensers, Evaporators and Expansion Devices: Construction and working.','CO5','L2/L3'],
+    [5,5,'II','Psychrometrics of Air-Conditioning Processes: Properties, Mixing, Comfort conditions.','CO1','L2/L3'],
+    [6,6,'II','Load Calculation and Applied Psychrometrics: Cooling-load Estimate, Duct design.','CO2','L2/L3'],
+    [7,7,'III','Refrigeration Systems: Vapour Compression and Vapour Absorption.','CO3','L2/L3'],
+    [8,8,'III','Refrigerants: Designation, Selection, Environment friendly refrigerants.','CO4','L2/L3'],
+    [9,9,'III','Refrigerant Compressors: Types, Performance, Capacity Control.','CO5','L2/L3'],
+    [10,10,'IV','Condensers, Evaporators and Expansion Devices: Construction and working.','CO1','L2/L3'],
+    [11,11,'IV','Psychrometrics of Air-Conditioning Processes: Properties, Mixing, Comfort conditions.','CO2','L2/L3'],
+    [12,12,'IV','Load Calculation and Applied Psychrometrics: Cooling-load Estimate, Duct design.','CO3','L2/L3'],
+    [13,13,'V','Refrigeration Systems: Vapour Compression and Vapour Absorption.','CO4','L2/L3'],
+    [14,14,'V','Refrigerants: Designation, Selection, Environment friendly refrigerants.','CO5','L2/L3'],
+    [15,15,'V','Refrigerant Compressors: Types, Performance, Capacity Control.','CO1','L2/L3'],
+  ];
+  const teachingPlan = tpRows.map(r=>({
+    id:uid('tp_'), week:r[0], lecture:r[1], unit:r[2], topic:r[3], cos:[r[4]], bloom:r[5],
+    pedagogy:'Interactive Lecture / Problem Solving', activity:'Discussion / Calculation',
+    assessment:'Quiz / TA / Assignment', date:'', status:'Not Started'
+  }));
+
+  const pedagogyTools = [
+    {id:uid('pd_'), method:'Interactive Lecture', frequency:10, units:['I','II','III','IV','V'], topics:'Core concepts', strategy:'PPTs, animations, Q&A', cos:['CO1','CO2'], bloom:'L1-L2', evidence:'Attendance, Notes'},
+    {id:uid('pd_'), method:'Demonstration Method', frequency:8, units:['II','III','IV'], topics:'Tools/Software/Machinery', strategy:'Live demonstration', cos:['CO2','CO3'], bloom:'L2-L3', evidence:'Lab Observation Sheet'},
+    {id:uid('pd_'), method:'Learning by Doing', frequency:12, units:['I','II','III','IV','V'], topics:'Calculations, drafting, programming', strategy:'Individual performance', cos:['CO2','CO4'], bloom:'L3-L4', evidence:'Lab Records'},
+    {id:uid('pd_'), method:'Problem-Based Learning (PBL)', frequency:5, units:['II','IV'], topics:'Complex Problems', strategy:'Engineering problem solving', cos:['CO3','CO4'], bloom:'L4-L5', evidence:'Solution Sheets'},
+    {id:uid('pd_'), method:'Project-Based Learning', frequency:3, units:['V'], topics:'Integration Project', strategy:'Design to manufacturing', cos:['CO5'], bloom:'L5-L6', evidence:'Project Report'},
+    {id:uid('pd_'), method:'Peer Learning', frequency:4, units:['II','III'], topics:'Reviews, Discussions', strategy:'Work in pairs/groups', cos:['CO2','CO3'], bloom:'L3-L4', evidence:'Peer Review Forms'},
+    {id:uid('pd_'), method:'Flipped Classroom', frequency:2, units:['I','IV'], topics:'History, Concepts', strategy:'Watch videos before class', cos:['CO1'], bloom:'L2-L3', evidence:'Quiz Scores'},
+    {id:uid('pd_'), method:'Case Study Method', frequency:4, units:['III','V'], topics:'Industry applications', strategy:'Faculty presents cases', cos:['CO3','CO4'], bloom:'L4-L5', evidence:'Case Study Reports'},
+    {id:uid('pd_'), method:'Industry Video Analysis', frequency:5, units:['I','V'], topics:'Modern techniques', strategy:'Guided discussion', cos:['CO1','CO4'], bloom:'L2-L4', evidence:'Reflection Reports'},
+    {id:uid('pd_'), method:'AI-Assisted Learning', frequency:10, units:['I','II','III','IV','V'], topics:'Optimization, Code generation', strategy:'Use of LLMs with verification', cos:['CO1','CO2','CO3','CO4','CO5'], bloom:'L2-L6', evidence:'AI Prompt Sheet'},
+    {id:uid('pd_'), method:'Reflective Learning', frequency:3, units:['V'], topics:'Course Review', strategy:'Reflective journals', cos:['CO5'], bloom:'L5-L6', evidence:'Reflection Diary'},
+  ];
+
+  const references = {
+    textbooks:[
+      'Arora R.C., Refrigeration and Air Conditioning, PHI',
+    ],
+    refBooks:[
+      'Threlkeld J.L., Thermal Environmental Engineering, Prentice Hall Inc. New Delhi',
+      'ASHRAE Handbook (HVAC Equipments)',
+      'Stocker W.F. and Jones J.W., Refrigeration and Air-conditioning, McGraw Hill',
+    ],
+    standards:[
+      'BIS Codes, ASME Standards, ISO Standards (where applicable)',
+    ]
+  };
+
+  return {
+    course:{
+      name:'Refrigeration and Air Conditioning', code:'TBD', program:'B.Tech Mechanical Engineering',
+      semester:'VII', academicYear:'2026-27', faculty:'', credits:3, cycle:'CAY', courseNumber:1, courseCategory:'PCC',
+      teachingScheme:{L:2, P:2, T:0, S:0}
+    },
+    cos, matrix,
+    units, teachingPlan, pedagogyTools, references,
+    students:[],
+    attendance:{ records:{} }, // records[studentId][teachingPlanRowId] = 'P' | 'A' | ''
+    feedback:{
+      scale: 5,          // Likert scale max (e.g. rate 1-5) — Course Exit Feedback (indirect CO attainment)
+      responses: []       // [{id, respondent:'', ratings:{CO1:4, CO2:5, ...}}]
+    },
+    poSurvey:{
+      scale: 5,           // Likert scale max for PO-level stakeholder surveys
+      responses:{ alumni:[], employer:[], graduate:[] } // each: [{id, respondent:'', ratings:{PO1:4, ...}}]
+    },
+    exams:{
+      T1: mkExam('T1 — TA-1', 7),
+      T2: mkExam('T2 — TA-2', 7),
+      T3: mkExam('T3 — TA-3', 6),
+      MSE: mkExam('MSE', 30),
+      ESE: mkExam('ESE', 50),
+    },
+    settings:{
+      targetPct: 60,           // % marks a student must score in a CO's questions to count as "attaining" it
+      levels:[ {level:3,pct:70}, {level:2,pct:60}, {level:1,pct:50} ], // % of class attaining (or % avg feedback score) -> level
+      poTarget: 2.0,
+      attendanceThreshold: 75, // % below which a student is flagged
+      weightDirect: 80,        // % weight of direct (exam-based) attainment in overall CO attainment
+      weightIndirect: 20,      // % weight of indirect (course-exit feedback) attainment in overall CO attainment
+      weightDirectPO: 80,      // % weight of direct (CO-projected) attainment in final PO attainment
+      weightIndirectPO: 20,    // % weight of indirect (stakeholder survey) attainment in final PO attainment
+      poSurveyWeights:{ alumni:34, employer:33, graduate:33 } // relative weights among the 3 indirect PO survey sources
+    },
+    report:{
+      institute:'', department:'', hodName:'', iqacCoordinator:'', remarks:''
+    },
+    createdBy: currentUser ? currentUser.name : '',
+    access: currentUser ? [{name: currentUser.name, role:'owner'}] : []
+    // access: [{name, role}] — role is 'owner' | 'editor' | 'viewer'. Global admins bypass this and can access every course.
+  };
+}
+
+function blankCourseState(name){
+  const d = defaultState();
+  d.course = { name: name||'New Course', code:'', program:'', semester:'I', academicYear:d.course.academicYear, faculty:'', credits:3, cycle:'CAY', courseNumber:null, courseCategory:'', teachingScheme:{L:3,P:0,T:0,S:0} };
+  d.cos = []; d.matrix = {};
+  d.units = []; d.teachingPlan = []; d.pedagogyTools = []; d.references = {textbooks:[], refBooks:[], standards:[]};
+  d.students = []; d.attendance = { records:{} };
+  d.feedback = { scale:5, responses:[] };
+  d.poSurvey = { scale:5, responses:{ alumni:[], employer:[], graduate:[] } };
+  d.report = { institute:'', department:'', hodName:'', iqacCoordinator:'', remarks:'' };
+  d.createdBy = currentUser ? currentUser.name : '';
+  d.access = currentUser ? [{name: currentUser.name, role:'owner'}] : [];
+  EXAM_KEYS.forEach(k=>{ d.exams[k].questions=[]; d.exams[k].marks={}; });
+  return d;
+}
+
+let courses = [];
+let users = [];        // shared user directory: [{id, name, role:'admin'|'faculty', addedBy, addedAt}]
+let masterRoster = []; // shared student batch roster: [{id, roll, name, semester, academicYear}] — carried forward across courses via Promote
+let activeCourseId = null;
+let state = null;      // pointer to the active course object (courses.find by activeCourseId), or null on Home
+let activeTab = 'setup';
+let activeExam = 'T1';
+let activeSurveyType = 'alumni';
+let currentUser = null; // {name, role: 'admin'|'faculty'} — personal to this browser/account, reconciled against `users` on each boot
+let saveTimer=null;
+
+function getActiveCourse(){ return courses.find(c=>c.id===activeCourseId) || null; }
+function findUser(name){
+  if(!name) return null;
+  return users.find(u=>u.name.trim().toLowerCase()===name.trim().toLowerCase()) || null;
+}
+
+/* ---- Identity (who is using this session) ---- */
+async function loadIdentity(){
+  try{
+    const res = await window.storage.get(IDENTITY_KEY, false);
+    if(res && res.value) currentUser = JSON.parse(res.value);
+  }catch(e){ currentUser = null; }
+}
+async function saveIdentity(){
+  try{ await window.storage.set(IDENTITY_KEY, JSON.stringify(currentUser), false); }catch(e){}
+}
+function switchUser(){
+  if(!confirm('Switch user? You will be asked to sign back in.')) return;
+  currentUser = null;
+  window.storage.set(IDENTITY_KEY, JSON.stringify(null), false).catch(()=>{});
+  renderIdentityGate();
+}
+function submitIdentity(){
+  const name = document.getElementById('gateName').value.trim();
+  if(!name){ toast('Enter your name to continue'); return; }
+  const roleInput = document.querySelector('input[name="gateRole"]:checked');
+  const existing = findUser(name);
+  if(existing){
+    currentUser = {name: existing.name, role: existing.role};
+  } else {
+    const role = roleInput ? roleInput.value : 'faculty';
+    currentUser = {name, role};
+    users.push({id: uid('user_'), name, role, addedBy: name+' (self)', addedAt: new Date().toISOString().slice(0,10)});
+  }
+  saveIdentity();
+  boot2();
+}
+function renderIdentityGate(){
+  const bootstrap = users.length===0; // first-ever sign-in: nobody in the directory yet, so let them declare admin
+  document.getElementById('app').innerHTML = `
+    <div class="gate-wrap"><div class="gate-card">
+      <h1>CO-PO Attainment Studio</h1>
+      <p>This workspace is shared across your department — course data is visible to everyone who opens it, filtered by the access each course owner grants. Sign in with your name.</p>
+      <div class="field"><label>Your name</label><input type="text" id="gateName" placeholder="e.g. Dr. A. Sharma" onkeydown="if(event.key==='Enter')submitIdentity();"></div>
+      ${bootstrap ? `
+      <div class="field"><label>Your role</label>
+        <div class="role-toggle">
+          <label id="roleFacultyLbl"><input type="radio" name="gateRole" value="faculty" checked onchange="updateGateToggle()"><span>Faculty</span><br><span class="muted" style="font-size:10.5px;">access per-course, as granted</span></label>
+          <label id="roleAdminLbl"><input type="radio" name="gateRole" value="admin" onchange="updateGateToggle()"><span>Admin (HOD / IQAC)</span><br><span class="muted" style="font-size:10.5px;">full access, all courses</span></label>
+        </div>
+      </div>` : `<div class="hint">If an admin has already added you, your role will be picked up automatically. Otherwise you'll join as Faculty — ask an admin to add you as Admin from the Home page if that's wrong.</div>`}
+      <div class="rowflex" style="margin-top:18px;"><button class="btn teal" onclick="submitIdentity()" style="flex:1;">Continue</button></div>
+    </div></div>`;
+  if(bootstrap) updateGateToggle();
+  document.getElementById('gateName').focus();
+}
+function updateGateToggle(){
+  const f = document.querySelector('input[name="gateRole"][value="faculty"]');
+  if(!f) return;
+  document.getElementById('roleFacultyLbl').className = f.checked ? 'checked' : '';
+  document.getElementById('roleAdminLbl').className = !f.checked ? 'checked' : '';
+}
+
+/* ---- Permissions ---- */
+function isAdmin(){ return !!(currentUser && currentUser.role==='admin'); }
+function courseRole(courseObj){
+  if(!courseObj) return null;
+  if(isAdmin()) return 'admin';
+  if(!currentUser || !Array.isArray(courseObj.access)) return null;
+  const entry = courseObj.access.find(a=>(a.name||'').trim().toLowerCase()===currentUser.name.trim().toLowerCase());
+  return entry ? entry.role : null;
+}
+function canView(courseObj){ return isAdmin() || courseRole(courseObj)!==null; }
+function canEdit(courseObj){ const r=courseRole(courseObj); return r==='admin' || r==='owner' || r==='editor'; }
+function canManageAccess(courseObj){ const r=courseRole(courseObj); return r==='admin' || r==='owner'; }
+
+/* ---- User directory management (Home page) ---- */
+function addUser(){
+  if(!isAdmin()){ toast('Only an admin can add users to the directory'); return; }
+  const nameEl = document.getElementById('newUserName');
+  const roleEl = document.getElementById('newUserRole');
+  const name = nameEl.value.trim();
+  if(!name){ toast('Enter a name first'); return; }
+  if(findUser(name)){ toast('That name is already in the directory'); return; }
+  users.push({id: uid('user_'), name, role: roleEl.value, addedBy: currentUser?currentUser.name:'', addedAt: new Date().toISOString().slice(0,10)});
+  nameEl.value='';
+  touch();
+  toast(name+' added');
+}
+function updateUserRole(id, role){
+  if(!isAdmin()){ toast('Only an admin can change roles'); return; }
+  const u = users.find(x=>x.id===id);
+  if(!u) return;
+  u.role = role;
+  if(currentUser && u.name.trim().toLowerCase()===currentUser.name.trim().toLowerCase()){
+    currentUser.role = role; saveIdentity();
+  }
+  touch();
+}
+function removeUser(id){
+  if(!isAdmin()){ toast('Only an admin can remove users'); return; }
+  const u = users.find(x=>x.id===id);
+  if(!u) return;
+  if(currentUser && u.name.trim().toLowerCase()===currentUser.name.trim().toLowerCase()){
+    toast("You can't remove yourself from the directory"); return;
+  }
+  if(!confirm('Remove "'+u.name+'" from the user directory? This does not remove them from individual courses\' access lists.')) return;
+  users = users.filter(x=>x.id!==id);
+  touch();
+}
+
+async function fetchSharedData(){
+  try{
+    const res = await window.storage.get(STORAGE_KEY, true);
+    if(res && res.value){
+      const parsed = JSON.parse(res.value);
+      if(parsed && Array.isArray(parsed.courses)){
+        courses = parsed.courses;
+        users = Array.isArray(parsed.users) ? parsed.users : [];
+        masterRoster = Array.isArray(parsed.masterRoster) ? parsed.masterRoster : [];
+      } else if(parsed && parsed.cos){
+        // migrate from the old single-course format
+        courses = [{...parsed, id: uid('course_'), access: parsed.access || (currentUser?[{name:currentUser.name,role:'owner'}]:[]), createdBy: parsed.createdBy || (currentUser?currentUser.name:'')}];
+        users = [];
+        masterRoster = [];
+      } else {
+        courses = [{...defaultState(), id: uid('course_')}];
+        users = [];
+        masterRoster = [];
+      }
+    } else {
+      courses = [{...defaultState(), id: uid('course_')}];
+      users = [];
+      masterRoster = [];
+    }
+  }catch(e){
+    courses = [{...defaultState(), id: uid('course_')}];
+    users = [];
+    masterRoster = [];
+  }
+  // backfill access/createdBy on any older course records missing them
+  courses.forEach(c=>{
+    if(!Array.isArray(c.access)) c.access = currentUser ? [{name:currentUser.name, role:'owner'}] : [];
+    if(c.createdBy===undefined) c.createdBy = '';
+    if(c.course && c.course.courseCategory===undefined) c.course.courseCategory = '';
+  });
+  // backfill semester/academicYear on any older per-course student records missing them
+  courses.forEach(c=>{
+    (c.students||[]).forEach(s=>{
+      if(s.semester===undefined) s.semester = Number(c.course.semester)||null;
+      if(s.academicYear===undefined) s.academicYear = c.course.academicYear||'';
+    });
+  });
+  // backfill exam date/time/duration fields on any older course records missing them
+  courses.forEach(c=>{
+    EXAM_KEYS.forEach(k=>{
+      if(c.exams && c.exams[k]){
+        if(c.exams[k].date===undefined) c.exams[k].date = '';
+        if(c.exams[k].time===undefined) c.exams[k].time = '';
+        if(c.exams[k].durationMinutes===undefined) c.exams[k].durationMinutes = null;
+      }
+    });
+  });
+}
+
+async function loadState(){
+  await fetchSharedData();
+  activeCourseId = null; // always land on Home after sign-in
+  // make sure the signed-in user is represented in the directory, and pick up any role change an admin made since last visit
+  if(currentUser){
+    const existing = findUser(currentUser.name);
+    if(existing){ currentUser.role = existing.role; saveIdentity(); }
+    else { users.push({id: uid('user_'), name: currentUser.name, role: currentUser.role, addedBy: currentUser.name+' (self)', addedAt: new Date().toISOString().slice(0,10)}); }
+  }
+  state = getActiveCourse();
+  render();
+}
+function saveState(){
+  const el = document.getElementById('saveState');
+  if(el) el.textContent = 'Saving…';
+  clearTimeout(saveTimer);
+  saveTimer = setTimeout(async ()=>{
+    try{
+      await window.storage.set(STORAGE_KEY, JSON.stringify({courses, users, masterRoster, activeCourseId}), true);
+      const el2 = document.getElementById('saveState');
+      if(el2) el2.textContent = 'All changes saved';
+    }catch(e){
+      const el2 = document.getElementById('saveState');
+      if(el2) el2.textContent = 'Save failed — changes kept in this session only';
+    }
+  }, 350);
+}
+function touch(){
+  if(state && !canEdit(state)){
+    toast("You have view-only access to this course — changes weren't saved");
+    render();
+    return;
+  }
+  saveState(); render();
+}
+
+function openCourse(id){
+  const c = courses.find(x=>x.id===id);
+  if(!c) return;
+  if(!canView(c)){ toast("You don't have access to this course"); return; }
+  activeCourseId = id; state = getActiveCourse(); activeTab = 'setup'; touch();
+}
+function backToHome(){ activeCourseId = null; state = null; touch(); }
+function addCourse(){
+  const c = blankCourseState('New Course');
+  c.id = uid('course_');
+  courses.push(c);
+  openCourse(c.id);
+  toast('New course created');
+}
+function duplicateCourse(id, ev){
+  if(ev) ev.stopPropagation();
+  const src = courses.find(c=>c.id===id);
+  if(!src) return;
+  if(!canView(src)){ toast("You don't have access to this course"); return; }
+  const clone = JSON.parse(JSON.stringify(src));
+  clone.id = uid('course_');
+  clone.course.name = (clone.course.name||'Course') + ' (Copy)';
+  clone.createdBy = currentUser ? currentUser.name : '';
+  if(!Array.isArray(clone.access)) clone.access = [];
+  if(currentUser && !clone.access.some(a=>(a.name||'').trim().toLowerCase()===currentUser.name.trim().toLowerCase())){
+    clone.access.push({name: currentUser.name, role:'owner'});
+  }
+  courses.push(clone);
+  touch(); toast('Course duplicated');
+}
+function deleteCourse(id, ev){
+  if(ev) ev.stopPropagation();
+  const c = courses.find(x=>x.id===id);
+  if(!c) return;
+  if(!canManageAccess(c)){ toast('Only the course owner or an admin can delete this course'); return; }
+  if(!confirm('Delete "'+(c.course.name||'this course')+'"? This cannot be undone.')) return;
+  courses = courses.filter(x=>x.id!==id);
+  if(activeCourseId===id){ activeCourseId=null; state=null; }
+  touch(); toast('Course deleted');
+}
+
+function toast(msg){
+  const t = document.getElementById('toast');
+  t.textContent = msg; t.classList.add('show');
+  clearTimeout(window.__toastTimer);
+  window.__toastTimer = setTimeout(()=>t.classList.remove('show'), 1800);
+}
+
+/* ============================= CSV / TSV HELPERS (for Google Sheets round-tripping) ============================= */
+
+function csvEscape(v){
+  const s = (v===undefined||v===null) ? '' : String(v);
+  if(/[",\n]/.test(s)) return '"' + s.replace(/"/g,'""') + '"';
+  return s;
+}
+function toCSV(rows){ return rows.map(r=>r.map(csvEscape).join(',')).join('\r\n'); }
+function toTSV(rows){ return rows.map(r=>r.map(v=>(v===undefined||v===null?'':String(v)).replace(/\t/g,' ').replace(/\n/g,' ')).join('\t')).join('\n'); }
+
+function downloadCSV(filename, rows){
+  const blob = new Blob(['\ufeff'+toCSV(rows)], {type:'text/csv;charset=utf-8;'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = filename.replace(/\s+/g,'_') + '.csv';
+  a.click();
+}
+async function copyTSV(rows, label){
+  const text = toTSV(rows);
+  try{
+    await navigator.clipboard.writeText(text);
+    toast((label||'Table') + ' copied — paste directly into a Google Sheet cell');
+  }catch(e){
+    // clipboard API blocked — fall back to a manual-select textarea
+    showManualCopyBox(text, label);
+  }
+}
+function showManualCopyBox(text, label){
+  const id = 'manualCopyBox';
+  let box = document.getElementById(id);
+  if(!box){
+    box = document.createElement('textarea');
+    box.id = id;
+    box.readOnly = true;
+    box.style.cssText = 'position:fixed;left:50%;top:50%;transform:translate(-50%,-50%);width:70vw;height:50vh;z-index:999;border:2px solid var(--navy);border-radius:8px;padding:12px;font-family:monospace;font-size:12px;box-shadow:0 10px 40px rgba(0,0,0,0.3);';
+    document.body.appendChild(box);
+  }
+  box.value = text;
+  box.style.display='block';
+  box.focus(); box.select();
+  toast((label||'Table') + " — clipboard access was blocked, so it's selected on screen: press Ctrl/Cmd+C, then click elsewhere to dismiss");
+  box.onblur = ()=>{ box.style.display='none'; };
+}
+
+// Parses pasted text as CSV or TSV (auto-detects the delimiter from the first line)
+function parseDelimited(text){
+  const lines = text.replace(/\r/g,'').split('\n').filter(l=>l.length>0);
+  if(lines.length===0) return [];
+  const delim = lines[0].includes('\t') ? '\t' : ',';
+  return lines.map(line=>{
+    if(delim==='\t') return line.split('\t').map(c=>c.trim());
+    // simple CSV split honoring quoted fields
+    const out=[]; let cur=''; let inQ=false;
+    for(let i=0;i<line.length;i++){
+      const ch=line[i];
+      if(inQ){
+        if(ch==='"'){ if(line[i+1]==='"'){cur+='"'; i++;} else inQ=false; }
+        else cur+=ch;
+      } else {
+        if(ch==='"') inQ=true;
+        else if(ch===','){ out.push(cur.trim()); cur=''; }
+        else cur+=ch;
+      }
+    }
+    out.push(cur.trim());
+    return out;
+  });
+}
+
+function exportJSON(){
+  const data = state ? state : {courses, activeCourseId};
+  const name = state ? (state.course.name||'course') : 'all_courses';
+  const blob = new Blob([JSON.stringify(data,null,2)], {type:'application/json'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = name.replace(/\s+/g,'_') + '_attainment_data.json';
+  a.click();
+}
+function confirmReset(){
+  if(!state){
+    if(!isAdmin()){ toast('Only an admin can reset the entire workspace'); return; }
+    if(confirm('Reset ALL courses back to the single example course? This cannot be undone.')){
+      courses = [{...defaultState(), id: uid('course_')}];
+      activeCourseId = null; state = null;
+      touch(); toast('All data reset to defaults');
+    }
+    return;
+  }
+  if(!canManageAccess(state)){ toast('Only the course owner or an admin can reset this course'); return; }
+  if(confirm('Reset THIS course (COs, papers, marks, matrix, surveys) back to blank? This cannot be undone.')){
+    const id = state.id;
+    const access = state.access, createdBy = state.createdBy;
+    const fresh = blankCourseState(state.course.name);
+    fresh.id = id;
+    fresh.access = access; fresh.createdBy = createdBy; // keep the access list intact across a reset
+    courses = courses.map(c=>c.id===id?fresh:c);
+    state = getActiveCourse();
+    touch(); toast('Course reset');
+  }
+}
+
+/* ============================= CALCULATIONS ============================= */
+
+function examQuestionsForCO(examKey, coId){
+  return state.exams[examKey].questions.filter(q => q.cos.includes(coId));
+}
+function coMaxMarksInExam(examKey, coId){
+  return examQuestionsForCO(examKey, coId).reduce((s,q)=>s+Number(q.max||0),0);
+}
+function studentCOMarksInExam(examKey, studentId, coId){
+  const qs = examQuestionsForCO(examKey, coId);
+  const mrow = state.exams[examKey].marks[studentId] || {};
+  return qs.reduce((s,q)=> s + Number(mrow[q.id]||0), 0);
+}
+function levelFromPct(pct){
+  const sortedLevels = [...state.settings.levels].sort((a,b)=>b.pct-a.pct);
+  let level = 0;
+  for(const lv of sortedLevels){ if(pct >= lv.pct){ level = lv.level; break; } }
+  return level;
+}
+// returns {level, pctAttained, maxMarks, n} or null if CO not assessed in this exam
+function coLevelForExam(examKey, coId){
+  const maxMarks = coMaxMarksInExam(examKey, coId);
+  const students = state.students;
+  if(maxMarks<=0 || students.length===0) return null;
+  let attainedCount = 0;
+  students.forEach(st=>{
+    const marks = studentCOMarksInExam(examKey, st.id, coId);
+    const pct = (marks/maxMarks)*100;
+    if(pct >= state.settings.targetPct) attainedCount++;
+  });
+  const pctAttained = (attainedCount/students.length)*100;
+  return {level: levelFromPct(pctAttained), pctAttained, maxMarks, n:students.length};
+}
+
+// Direct CO attainment combining TA (T1+T2+T3), MSE, ESE weighted by their weightage.
+// Returns both a 0-3 level and an equivalent 0-100% figure (weighted avg of "% of class attaining" per component).
+function directCOAttainment(coId){
+  const ta = ['T1','T2','T3'].map(k=>coLevelForExam(k,coId)).filter(Boolean);
+  const taWeight = ['T1','T2','T3'].reduce((s,k)=>s+Number(state.exams[k].weight||0),0);
+  const taLevel = ta.length ? ta.reduce((s,x)=>s+x.level,0)/ta.length : null;
+  const taPct = ta.length ? ta.reduce((s,x)=>s+x.pctAttained,0)/ta.length : null;
+
+  const mse = coLevelForExam('MSE', coId);
+  const ese = coLevelForExam('ESE', coId);
+
+  const comps = [];
+  if(taLevel!==null) comps.push({level:taLevel, pct:taPct, weight:taWeight});
+  if(mse) comps.push({level:mse.level, pct:mse.pctAttained, weight:Number(state.exams.MSE.weight||0)});
+  if(ese) comps.push({level:ese.level, pct:ese.pctAttained, weight:Number(state.exams.ESE.weight||0)});
+
+  const totalWeight = comps.reduce((s,c)=>s+c.weight,0);
+  const attainment = totalWeight>0 ? comps.reduce((s,c)=>s+c.level*c.weight,0)/totalWeight : null;
+  const attainmentPct = totalWeight>0 ? comps.reduce((s,c)=>s+c.pct*c.weight,0)/totalWeight : null;
+  return { attainment, attainmentPct, taLevel, mse, ese, assessed: comps.length>0 };
+}
+
+// Indirect CO attainment, from the course-exit feedback survey (student self-rated CO achievement).
+function indirectCOAttainment(coId){
+  const scale = Number(state.feedback.scale)||5;
+  const vals = state.feedback.responses
+    .map(r=>r.ratings[coId])
+    .filter(v=>v!==undefined && v!==null && v!=='');
+  if(vals.length===0) return null;
+  const avg = vals.reduce((s,v)=>s+Number(v),0)/vals.length;
+  const pct = (avg/scale)*100;
+  return { avgRating: avg, pct, level: levelFromPct(pct), n: vals.length, scale };
+}
+
+// Combines direct + indirect attainment per the weights in Settings.
+// Falls back to 100% direct if no feedback data exists yet for that CO.
+function combinedCOAttainment(coId){
+  const direct = directCOAttainment(coId);
+  const indirect = indirectCOAttainment(coId);
+  let wD = Number(state.settings.weightDirect||0), wI = Number(state.settings.weightIndirect||0);
+  if(direct.attainment===null && !indirect) return {direct, indirect, overallLevel:null, overallPct:null};
+  if(!indirect){
+    // no indirect data yet -> attainment is direct-only
+    return {direct, indirect, overallLevel:direct.attainment, overallPct:direct.attainmentPct};
+  }
+  if(direct.attainment===null){
+    // no direct data yet -> attainment is indirect-only
+    return {direct, indirect, overallLevel:indirect.level, overallPct:indirect.pct};
+  }
+  const total = wD+wI || 100;
+  const overallLevel = (direct.attainment*wD + indirect.level*wI)/total;
+  const overallPct = (direct.attainmentPct*wD + indirect.pct*wI)/total;
+  return {direct, indirect, overallLevel, overallPct};
+}
+
+// PO attainment "via CO projection" — the standard direct computation, using each CO's overall (direct+indirect) attainment
+function directPOAttainment(){
+  const results = {};
+  const coCombined = {};
+  state.cos.forEach(co=>{ coCombined[co.id] = combinedCOAttainment(co.id); });
+
+  ALL_POS.forEach(po=>{
+    let num=0, den=0;
+    state.cos.forEach(co=>{
+      const corr = Number((state.matrix[co.id]||{})[po]||0);
+      const d = coCombined[co.id];
+      if(corr>0 && d.overallLevel!==null){
+        num += d.overallLevel * corr;
+        den += corr;
+      }
+    });
+    results[po] = den>0 ? (num/den) : null;
+  });
+  return {results, coCombined};
+}
+// backward-compatible alias
+function poAttainment(){ return directPOAttainment(); }
+
+const SURVEY_TYPES = [
+  {key:'alumni', label:'Alumni Survey'},
+  {key:'employer', label:'Employer Survey'},
+  {key:'graduate', label:'Graduate Exit Survey'},
+];
+
+// Average rating -> pct -> level for one stakeholder survey type, for a given PO/PSO
+function surveyPOLevel(surveyType, po){
+  const scale = Number(state.poSurvey.scale)||5;
+  const vals = (state.poSurvey.responses[surveyType]||[])
+    .map(r=>r.ratings[po]).filter(v=>v!==undefined && v!==null && v!=='');
+  if(vals.length===0) return null;
+  const avg = vals.reduce((s,v)=>s+Number(v),0)/vals.length;
+  const pct = (avg/scale)*100;
+  return { avgRating: avg, pct, level: levelFromPct(pct), n: vals.length };
+}
+// Combine alumni/employer/graduate surveys (weighted) into a single Indirect PO Attainment figure
+function indirectPOAttainment(po){
+  const w = state.settings.poSurveyWeights || {alumni:34, employer:33, graduate:33};
+  const comps = SURVEY_TYPES.map(t=>({key:t.key, res:surveyPOLevel(t.key, po), weight:Number(w[t.key]||0)}))
+    .filter(c=>c.res!==null);
+  if(comps.length===0) return null;
+  const totalWeight = comps.reduce((s,c)=>s+c.weight,0) || comps.length;
+  const useEqual = totalWeight===0;
+  const level = useEqual
+    ? comps.reduce((s,c)=>s+c.res.level,0)/comps.length
+    : comps.reduce((s,c)=>s+c.res.level*c.weight,0)/totalWeight;
+  const pct = useEqual
+    ? comps.reduce((s,c)=>s+c.res.pct,0)/comps.length
+    : comps.reduce((s,c)=>s+c.res.pct*c.weight,0)/totalWeight;
+  return { level, pct, sources: comps.map(c=>c.key) };
+}
+// Final PO attainment = Direct (CO-projected) + Indirect (stakeholder surveys), weighted
+function finalPOAttainment(){
+  const {results: directResults, coCombined} = directPOAttainment();
+  const wD = Number(state.settings.weightDirectPO||0), wI = Number(state.settings.weightIndirectPO||0);
+  const final = {}, indirect = {};
+  ALL_POS.forEach(po=>{
+    const d = directResults[po];
+    const ind = indirectPOAttainment(po);
+    indirect[po] = ind;
+    if(d===null && !ind){ final[po] = null; return; }
+    if(!ind){ final[po] = d; return; }
+    if(d===null){ final[po] = ind.level; return; }
+    const total = wD+wI || 100;
+    final[po] = (d*wD + ind.level*wI)/total;
+  });
+  return { directResults, indirect, final, coCombined };
+}
+
+/* ============================= 3-YEAR ATTAINMENT TREND (CAY / CAYm1 / CAYm2) ============================= */
+
+// Run a calculation against a different course object by temporarily swapping the global `state` pointer.
+// Safe because all calc functions here are synchronous with no awaits in between.
+function withCourse(courseObj, fn){
+  const prev = state;
+  state = courseObj;
+  try{ return fn(); } finally { state = prev; }
+}
+
+function courseMatchKey(courseObj){
+  const code = (courseObj.course.code||'').trim().toLowerCase();
+  const name = (courseObj.course.name||'').trim().toLowerCase();
+  return code || name;
+}
+// Find the sibling courses (same course code/name) across the 3 cycles
+function courseCycleGroup(courseObj){
+  const key = courseMatchKey(courseObj);
+  if(!key) return {};
+  const map = {};
+  courses.forEach(c=>{
+    if(courseMatchKey(c)===key){
+      const cyc = (c.course && c.course.cycle) || 'CAY';
+      if(!map[cyc]) map[cyc] = c; // first match wins if duplicates exist within a cycle
+    }
+  });
+  return map;
+}
+function courseAvgCOAttainment(courseObj){
+  return withCourse(courseObj, ()=>{
+    const levels = state.cos.map(co=>combinedCOAttainment(co.id).overallLevel).filter(v=>v!==null);
+    return levels.length ? levels.reduce((a,b)=>a+b,0)/levels.length : null;
+  });
+}
+function courseAvgPOAttainment(courseObj){
+  return withCourse(courseObj, ()=>{
+    const {final} = finalPOAttainment();
+    const vals = ALL_POS.map(po=>final[po]).filter(v=>v!==null);
+    return vals.length ? vals.reduce((a,b)=>a+b,0)/vals.length : null;
+  });
+}
+
+/* ============================= RENDER SHELL ============================= */
+
+const TABS = [
+  {id:'setup', label:'Course & CO-PO Setup'},
+  {id:'students', label:'Student Roster'},
+  {id:'syllabus', label:'Unit-wise Syllabus'},
+  {id:'teachingplan', label:'Teaching Plan'},
+  {id:'pedagogy', label:'Pedagogy Tools'},
+  {id:'attendance', label:'Attendance'},
+  {id:'references', label:'References'},
+  {id:'papers', label:'Question Papers'},
+  {id:'marks', label:'Marks Entry'},
+  {id:'feedback', label:'Course Exit Feedback'},
+  {id:'coatt', label:'CO Attainment'},
+  {id:'posurvey', label:'Alumni/Employer/Grad Survey'},
+  {id:'poatt', label:'CO-PO Attainment'},
+  {id:'trend', label:'3-Year Attainment Trend'},
+  {id:'sheets', label:'Google Sheets Sync'},
+  {id:'report', label:'Final Report (IQAC)'},
+];
+
+function render(){
+  if(!document.getElementById('navList')) return; // identity gate is showing; nothing to render yet
+  const nav = document.getElementById('navList');
+  const whoami = document.getElementById('whoami');
+  if(whoami && currentUser){
+    whoami.innerHTML = `<span style="color:#e7ecf3;">${esc(currentUser.name)}</span> <span class="role-badge ${currentUser.role}">${currentUser.role}</span>`;
+  }
+
+  if(!activeCourseId || !getActiveCourse()){
+    // ---- HOME VIEW ----
+    state = null;
+    document.getElementById('brandCourse').textContent = 'Course dashboard';
+    nav.innerHTML = `<button class="active"><span class="num">•</span>All Courses</button>`;
+    document.getElementById('main').className = '';
+    document.getElementById('main').innerHTML = renderHome();
+    return;
+  }
+
+  // ---- COURSE VIEW ----
+  state = getActiveCourse();
+  if(!canView(state)){
+    // shouldn't normally happen (openCourse blocks it), but guard anyway
+    toast("You don't have access to this course");
+    backToHome();
+    return;
+  }
+  document.getElementById('brandCourse').textContent = (state.course.code?state.course.code+' — ':'') + (state.course.name || 'course setup');
+  nav.innerHTML = `<button onclick="backToHome()"><span class="num">←</span>All Courses</button>
+    <div style="height:1px;background:rgba(255,255,255,0.12);margin:6px 4px;"></div>` +
+    TABS.map((t,i)=>`
+    <button class="${activeTab===t.id?'active':''}" onclick="setTab('${t.id}')">
+      <span class="num">${String(i+1).padStart(2,'0')}</span>${t.label}
+    </button>`).join('');
+
+  const main = document.getElementById('main');
+  const editable = canEdit(state);
+  main.className = editable ? '' : 'view-only';
+  const roleBanner = !editable
+    ? `<div class="view-only-banner no-pri
+<truncated 118018 bytes>
+
+NOTE: The output was truncated because it was too long. Use a more targeted query or a smaller range to get the information you need.

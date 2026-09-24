@@ -1,0 +1,237 @@
+// ─────────────────────────────────────────────────────────────────────────────
+//  server/prisma/schema.prisma
+//  CO-PO Attainment — Prisma schema (PostgreSQL)
+//
+//  ER Diagram implemented:
+//    Faculty      ||--o{  Course        : "teaches"
+//    Course       ||--o{  CourseOutcome : "has"
+//    Course       ||--o{  Exam          : "has"
+//    Course       ||--o{  Enrollment    : "has"
+//    CourseOutcome||--o{  COPOMapping   : "mapped to"
+//    CourseOutcome||--o{  Mark          : "assessed by"
+//    CourseOutcome||--o{  Feedback      : "rated by"
+//    CourseOutcome||--o{  Question      : "linked to"
+//    PO           ||--o{  COPOMapping   : "mapped from"
+//    Student      ||--o{  Enrollment    : "enrolled in"
+//    Student      ||--o{  Mark          : "gets"
+//    Student      ||--o{  Feedback      : "gives"
+//    Exam         ||--o{  Question      : "contains"
+//    Question     ||--o{  Mark          : "scored in"
+// ─────────────────────────────────────────────────────────────────────────────
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ══════════════════════════════════════════════════════════════════════════════
+//  FACULTY
+// ══════════════════════════════════════════════════════════════════════════════
+model Faculty {
+  id         String   @id @default(uuid())
+  name       String
+  email      String?  @unique
+  department String?
+  misNumber  String?  @unique
+  courses    Course[]
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@map("faculty")
+}
+
+// ══════════════════════════════════════════════════════════════════════════════
+//  COURSE
+// ══════════════════════════════════════════════════════════════════════════════
+model Course {
+  id             String          @id @default(uuid())
+  courseId       String          @unique   // e.g. "ME-25001"
+  name           String
+  code           String?
+  courseType     String?                   // PCC, PEC, BSC, ESC ...
+  department     String?
+  semester       String?                   // I, II, III ... VIII
+  credits        Float?
+  lectureHrs     Int?                      // L
+  tutorialHrs    Int?                      // T
+  practicalHrs   Int?                      // P
+  selfStudyHrs   Int?                      // S
+  academicYear   String?
+  programName    String?
+  misNumber      String?
+  totalStudents  Int?
+  theoryMSE      Int?
+  theoryTE       Int?
+  theoryESE      Int?
+  labISE         Int?
+  labESE         Int?
+  facultyId      String?
+  faculty        Faculty?        @relation(fields: [facultyId], references: [id])
+  courseOutcomes CourseOutcome[]
+  exams          Exam[]
+  enrollments    Enrollment[]
+  createdAt      DateTime        @default(now())
+  updatedAt      DateTime        @updatedAt
+
+  @@map("course")
+}
+
+// ══════════════════════════════════════════════════════════════════════════════
+//  COURSE OUTCOME  (CO)
+// ══════════════════════════════════════════════════════════════════════════════
+model CourseOutcome {
+  id           String        @id @default(uuid())
+  courseId     String
+  course       Course        @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  coNumber     String                          // "CO1", "CO2" ...
+  description  String
+  bloomLevel   String?                         // Remember | Understand | Apply | Analyze | Evaluate | Create
+  copoMappings COPOMapping[]
+  marks        Mark[]
+  feedbacks    Feedback[]
+  questions    Question[]
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+
+  @@unique([courseId, coNumber])
+  @@map("course_outcome")
+}
+
+// ══════════════════════════════════════════════════════════════════════════════
+//  PROGRAM OUTCOME  (PO / PSO)
+// ══════════════════════════════════════════════════════════════════════════════
+model PO {
+  id           String        @id @default(uuid())
+  poId         String        @unique   // "PO1" … "PO12", "PSO1" … "PSO3"
+  description  String
+  type         String                  // "PO" or "PSO"
+  copoMappings COPOMapping[]
+
+  @@map("po")
+}
+
+// ══════════════════════════════════════════════════════════════════════════════
+//  CO-PO MAPPING
+// ══════════════════════════════════════════════════════════════════════════════
+model COPOMapping {
+  id               String        @id @default(uuid())
+  courseOutcomeId  String
+  courseOutcome    CourseOutcome @relation(fields: [courseOutcomeId], references: [id], onDelete: Cascade)
+  poId             String
+  po               PO            @relation(fields: [poId], references: [id])
+  correlationLevel Int           // 0 = none, 1 = Low, 2 = Medium, 3 = High
+
+  @@unique([courseOutcomeId, poId])
+  @@map("copo_mapping")
+}
+
+// ══════════════════════════════════════════════════════════════════════════════
+//  STUDENT
+// ══════════════════════════════════════════════════════════════════════════════
+model Student {
+  id          String       @id @default(uuid())
+  rollNumber  String       @unique
+  name        String
+  email       String?
+  batchYear   String?
+  enrollments Enrollment[]
+  marks       Mark[]
+  feedbacks   Feedback[]
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+
+  @@map("student")
+}
+
+// ══════════════════════════════════════════════════════════════════════════════
+//  ENROLLMENT  (Student ↔ Course junction)
+// ══════════════════════════════════════════════════════════════════════════════
+model Enrollment {
+  id        String   @id @default(uuid())
+  studentId String
+  student   Student  @relation(fields: [studentId], references: [id], onDelete: Cascade)
+  courseId  String
+  course    Course   @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+
+  @@unique([studentId, courseId])
+  @@map("enrollment")
+}
+
+// ══════════════════════════════════════════════════════════════════════════════
+//  EXAM
+// ══════════════════════════════════════════════════════════════════════════════
+model Exam {
+  id         String     @id @default(uuid())
+  courseId   String
+  course     Course     @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  title      String
+  type       String     // Internal | Mid Semester | End Semester | Practical | Oral | Assignment
+  totalMarks Int
+  date       DateTime?
+  duration   String?
+  questions  Question[]
+  createdAt  DateTime   @default(now())
+  updatedAt  DateTime   @updatedAt
+
+  @@map("exam")
+}
+
+// ══════════════════════════════════════════════════════════════════════════════
+//  QUESTION
+// ══════════════════════════════════════════════════════════════════════════════
+model Question {
+  id               String         @id @default(uuid())
+  examId           String
+  exam             Exam           @relation(fields: [examId], references: [id], onDelete: Cascade)
+  label            String         // "Q1", "Q1(a)", "Q2(b)" ...
+  maxMarks         Float
+  courseOutcomeId  String?
+  courseOutcome    CourseOutcome? @relation(fields: [courseOutcomeId], references: [id])
+  bloomLevel       String?
+  unitNo           String?
+  questionText     String?
+  marks            Mark[]
+  createdAt        DateTime       @default(now())
+
+  @@map("question")
+}
+
+// ══════════════════════════════════════════════════════════════════════════════
+//  MARK  (Student × Question score)
+// ══════════════════════════════════════════════════════════════════════════════
+model Mark {
+  id               String         @id @default(uuid())
+  studentId        String
+  student          Student        @relation(fields: [studentId], references: [id], onDelete: Cascade)
+  questionId       String
+  question         Question       @relation(fields: [questionId], references: [id], onDelete: Cascade)
+  courseOutcomeId  String?
+  courseOutcome    CourseOutcome? @relation(fields: [courseOutcomeId], references: [id])
+  marksObtained    Float
+  createdAt        DateTime       @default(now())
+  updatedAt        DateTime       @updatedAt
+
+  @@unique([studentId, questionId])
+  @@map("mark")
+}
+
+// ══════════════════════════════════════════════════════════════════════════════
+//  FEEDBACK  (Student → CO indirect attainment rating)
+// ══════════════════════════════════════════════════════════════════════════════
+model Feedback {
+  id               String        @id @default(uuid())
+  studentId        String
+  student          Student       @relation(fields: [studentId], references: [id], onDelete: Cascade)
+  courseOutcomeId  String
+  courseOutcome    CourseOutcome @relation(fields: [courseOutcomeId], references: [id], onDelete: Cascade)
+  rating           Int           // 1 – 5
+  createdAt        DateTime      @default(now())
+
+  @@unique([studentId, courseOutcomeId])
+  @@map("feedback")
+}

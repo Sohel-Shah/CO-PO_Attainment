@@ -1,0 +1,35 @@
+﻿[
+  {
+    "id": "e7201e4e-1940-4a9b-9694-ec62a37ec1cc",
+    "courseId": "15db0113-c62b-4e02-8146-0cc97137a87e",
+    "title": "Internal Exam",
+    "type": "Internal",
+    "totalMarks": 40,
+    "date": null,
+    "duration": "1 hr",
+    "createdAt": "2026-03-16T09:48:13.287Z",
+    "updatedAt": "2026-03-16T09:48:13.287Z"
+  },
+  {
+    "id": "9a881cbd-c27c-4e90-8780-7d52352fe848",
+    "courseId": "15db0113-c62b-4e02-8146-0cc97137a87e",
+    "title": "End Semester Exam",
+    "type": "End Semester",
+    "totalMarks": 55,
+    "date": null,
+    "duration": "3 hr",
+    "createdAt": "2026-03-16T09:48:13.313Z",
+    "updatedAt": "2026-03-16T09:48:13.313Z"
+  },
+  {
+    "id": "ec56b908-65bb-46d2-a8be-1e32ed9aed24",
+    "courseId": "15db0113-c62b-4e02-8146-0cc97137a87e",
+    "title": "Mid Semester Exam",
+    "type": "Mid Semester",
+    "totalMarks": 30,
+    "date": null,
+    "duration": "2 hr",
+    "createdAt": "2026-03-16T09:48:13.323Z",
+    "updatedAt": "2026-03-16T09:48:13.323Z"
+  }
+]

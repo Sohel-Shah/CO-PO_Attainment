@@ -1,0 +1,47 @@
+{
+    "name": "obc-server",
+    "version": "1.0.0",
+    "description": "OBC Software — Express + Prisma backend for CO-PO Attainment",
+    "main": "index.js",
+    "scripts": {
+        "start": "node gateway/server.js",
+        "test": "node --test tests/security.test.js",
+        "dev": "concurrently -n \"GATEWAY,AUTH,ACAD,STUD,ASSESS,MGMT,REPORT\" -c \"magenta,blue,green,yellow,cyan,white,red\" \"nodemon gateway/server.js\" \"nodemon services/auth/server.js\" \"nodemon services/academic/server.js\" \"nodemon services/student/server.js\" \"nodemon services/assessment/server.js\" \"nodemon services/management/server.js\" \"nodemon services/report/server.js\"",
+        "dev:auth": "nodemon services/auth/server.js",
+        "dev:academic": "nodemon services/academic/server.js",
+        "dev:student": "nodemon services/student/server.js",
+        "dev:assessment": "nodemon services/assessment/server.js",
+        "dev:mgmt": "nodemon services/management/server.js",
+        "dev:report": "nodemon services/report/server.js",
+        "db:generate": "npx prisma generate --schema=./prisma/schema.prisma",
+        "db:push": "npx prisma db push --schema=./prisma/schema.prisma",
+        "db:migrate": "npx prisma migrate dev --schema=./prisma/schema.prisma",
+        "seed": "node seed.js",
+        "db:seed": "node prisma/seed.js",
+        "db:studio": "npx prisma studio --schema=./prisma/schema.prisma",
+        "db:reset": "npx prisma migrate reset --schema=./prisma/schema.prisma"
+    },
+    "dependencies": {
+        "@google/genai": "^2.17.1",
+        "@prisma/client": "^6.19.2",
+        "bcryptjs": "^3.0.3",
+        "concurrently": "^9.2.1",
+        "cors": "^2.8.5",
+        "dotenv": "^16.4.5",
+        "express": "^4.18.3",
+        "express-http-proxy": "^2.1.2",
+        "express-rate-limit": "^8.6.0",
+        "helmet": "^8.3.0",
+        "jsonwebtoken": "^9.0.3",
+        "multer": "^2.2.0",
+        "pdf-parse": "^1.1.1",
+        "pdfkit": "^0.19.1",
+        "pg": "^8.11.3",
+        "zod": "^4.4.3"
+    },
+    "devDependencies": {
+        "autocannon": "^8.0.0",
+        "nodemon": "^3.1.0",
+        "prisma": "^6.19.2"
+    }
+}

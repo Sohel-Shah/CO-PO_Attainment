@@ -1,0 +1,12 @@
+node_modules
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+.env
+legacy_v1
+scratch
+uploads
+*.log
+.git
+.gitignore
+Dockerfile
